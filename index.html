@@ -41,11 +41,12 @@
     <script src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
 </head>
 <body class="bg-black font-sans text-white overflow-x-hidden">
-    <!-- Preloader -->
+    <!-- Enhanced Preloader -->
     <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center">
         <div class="animate-pulse flex flex-col items-center">
+            <div class="preloader-logo">FAFCODE</div>
             <div class="w-16 h-16 border-4 border-[#e99b63] border-t-transparent rounded-full animate-spin"></div>
-            <p class="mt-4 text-gray-300">Loading FAFCODE...</p>
+            <p class="mt-4 text-gray-300">Loading amazing experience...</p>
         </div>
     </div>
 
@@ -54,9 +55,9 @@
         <img src="gradient.png" alt="gradient background" class="absolute ml-[55%] mt-[10%] opacity-60 -z-10">
         <div class="h-0 w-[40rem] absolute top-[20%] right-[-5%] shadow-[0_0_900px_20px_#e99b63] -rotate-[30deg] -z-10"></div>
 
-        <!-- Header -->
+        <!-- Enhanced Header -->
         <header class="fixed w-full flex justify-between items-center py-4 px-4 lg:px-20 leading-relaxed bg-black/80 backdrop-blur-sm z-40 transition-all duration-300" id="header">
-            <a href="index.html" class="text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
+            <a href="index.html" class="logo text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
             
             <div class="hidden md:flex flex-1 justify-center mx-4">
                 <nav class="flex items-center gap-4 sm:gap-8 md:gap-12">
@@ -113,88 +114,264 @@
             ></spline-viewer>
         </div>
 
-        <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col lg:flex-row items-center justify-between px-4 lg:px-20 pt-32 pb-20">
+        <!-- Enhanced Hero Section -->
+        <section class="min-h-screen flex flex-col lg:flex-row items-center justify-between px-4 lg:px-20 pt-32 pb-20 relative" id="hero">
             <div class="w-full lg:w-1/2 z-10 mb-12 lg:mb-0 animate-fade-in">
-                <div class="relative w-full sm:w-48 h-10 bg-gradient-to-r from-[#656565] to-[#e99b63] rounded-full hover:shadow-2xl hover:shadow-orange-500 mb-8 animate-slide-up">
+                <div class="relative w-full sm:w-48 h-10 bg-gradient-to-r from-[#656565] to-[#e99b63] rounded-full hover:shadow-2xl hover:shadow-orange-500 mb-8 animate-slide-up animate-float">
                     <div class="absolute inset-[3px] bg-white rounded-full flex items-center justify-center gap-1 transform transition-all duration-300 hover:scale-105 hover:cursor-pointer">
-                        <img src="diamond-alt.png" alt="diamond icon" class="h-6 w-6">
-                        <p class="text-black text-sm">INTRODUCING</p>
+                        <div class="h-6 w-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                            <div class="h-2 w-2 bg-white rounded-full"></div>
+                        </div>
+                        <p class="text-black text-sm font-medium">INTRODUCING V2.0</p>
                     </div>
                 </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight animate-slide-up" style="animation-delay: 0.2s;">
+                <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight animate-slide-up hero-animate" style="animation-delay: 0.2s; opacity: 0; transform: translateY(30px);">
                     EMAIL FOR<br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e99b63] to-[#f5d5b8]">DEVELOPERS</span>
+                    <span class="gradient-text">DEVELOPERS</span>
                 </h1>
-                <p class="text-gray-300 mt-6 text-lg max-w-lg animate-fade-in" style="animation-delay: 0.4s;">
+                <p class="text-gray-300 mt-6 text-lg max-w-lg animate-fade-in hero-animate" style="animation-delay: 0.4s; opacity: 0; transform: translateY(30px);">
                     A modern email solution designed specifically for developers and tech teams. Build, test, and deploy email workflows with the tools you already love.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 mt-8 animate-slide-up" style="animation-delay: 0.6s;">
-                    <button class="bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-3 px-8 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
-                        Get Started
+                <div class="flex flex-col sm:flex-row gap-4 mt-8 animate-slide-up hero-animate" style="animation-delay: 0.6s; opacity: 0; transform: translateY(30px);">
+                    <button class="btn-primary bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-3 px-8 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
+                        Get Started Free
                     </button>
-                    <a href="pages/docs.html" class="border border-gray-600 hover:border-[#e99b63] text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105">
-                        Get Docs
+                    <a href="#features" class="btn-secondary border border-gray-600 hover:border-[#e99b63] text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105 text-center">
+                        Explore Features
                     </a>
                 </div>
+                
+                <!-- Stats Section -->
+                <div class="flex flex-wrap gap-8 mt-12 hero-animate" style="animation-delay: 0.8s; opacity: 0; transform: translateY(30px);">
+                    <div class="text-center">
+                        <div class="stat-number text-2xl font-bold text-[#e99b63]">10K+</div>
+                        <div class="text-gray-400 text-sm">Developers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="stat-number text-2xl font-bold text-[#e99b63]">99.9%</div>
+                        <div class="text-gray-400 text-sm">Uptime</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="stat-number text-2xl font-bold text-[#e99b63]">1M+</div>
+                        <div class="text-gray-400 text-sm">Emails/day</div>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Background Animation -->
+            <div class="absolute inset-0 bg-gradient-radial opacity-30 -z-10"></div>
+            <div class="absolute inset-0 bg-dot-pattern opacity-20 -z-10"></div>
         </section>
 
-        <!-- Features Section -->
-        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+        <!-- Enhanced Features Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50" id="features">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-4">Developer-First Features</h2>
-                <p class="text-gray-400 text-center max-w-3xl mx-auto mb-16">Built with modern development workflows in mind</p>
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Developer-First Features</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto mb-8">Built with modern development workflows in mind</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-[#e99b63] to-[#f5d5b8] mx-auto rounded-full"></div>
+                </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">API First Design</h3>
-                        <p class="text-gray-400">RESTful API with comprehensive documentation and SDKs for all major languages.</p>
+                        <p class="text-gray-400 mb-4">RESTful API with comprehensive documentation and SDKs for all major languages.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">REST API</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">GraphQL</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Webhooks</span>
+                        </div>
                     </div>
                     
                     <!-- Feature 2 -->
-                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">Templates as Code</h3>
-                        <p class="text-gray-400">Version-controlled email templates with Git integration and CI/CD pipelines.</p>
+                        <p class="text-gray-400 mb-4">Version-controlled email templates with Git integration and CI/CD pipelines.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Git Integration</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">CI/CD</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Versioning</span>
+                        </div>
                     </div>
                     
                     <!-- Feature 3 -->
-                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">Test Mode</h3>
-                        <p class="text-gray-400">Sandbox environment with email previews and automated testing tools.</p>
+                        <p class="text-gray-400 mb-4">Sandbox environment with email previews and automated testing tools.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Sandbox</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Preview</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Testing</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Analytics & Monitoring</h3>
+                        <p class="text-gray-400 mb-4">Real-time delivery tracking with detailed analytics and performance metrics.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Real-time</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Metrics</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Tracking</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Scalable Infrastructure</h3>
+                        <p class="text-gray-400 mb-4">Auto-scaling infrastructure that grows with your application needs.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Auto-scale</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Global CDN</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">99.9% SLA</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="feature-icon w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Team Collaboration</h3>
+                        <p class="text-gray-400 mb-4">Multi-user support with role-based access control and team management.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">RBAC</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">Teams</span>
+                            <span class="px-2 py-1 text-xs bg-[#e99b63]/20 text-[#e99b63] rounded-full">SSO</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Ready to transform your email workflow?</h2>
-                <p class="text-gray-400 mb-10 max-w-2xl mx-auto">Join to streamline your email infrastructure with FAFCODE.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-3 px-8 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
-                        Get Started for Free
-                    </button>
-                    <button class="border border-gray-600 hover:border-[#e99b63] text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105">
-                        Talk to Sales
-                    </button>
+        <!-- Testimonials Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black/50" id="testimonials">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Loved by Developers</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto mb-8">See what developers are saying about FAFCODE</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-[#e99b63] to-[#f5d5b8] mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="feature-card bg-gray-900/30 p-6 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-[#e99b63] to-[#f5b881] rounded-full flex items-center justify-center text-white font-bold">
+                                JS
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">John Smith</h4>
+                                <p class="text-gray-400 text-sm">Senior Developer at TechCorp</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"FAFCODE completely transformed our email workflow. The API-first approach made integration seamless, and our deployment time decreased by 60%."</p>
+                        <div class="flex mt-4">
+                            <span class="text-[#e99b63]">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="feature-card bg-gray-900/30 p-6 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-[#e99b63] to-[#f5b881] rounded-full flex items-center justify-center text-white font-bold">
+                                MJ
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Maria Johnson</h4>
+                                <p class="text-gray-400 text-sm">CTO at StartupXYZ</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"The template versioning and Git integration features are game-changers. We can now manage email templates like code - it's brilliant!"</p>
+                        <div class="flex mt-4">
+                            <span class="text-[#e99b63]">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="feature-card bg-gray-900/30 p-6 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-[#e99b63] to-[#f5b881] rounded-full flex items-center justify-center text-white font-bold">
+                                AD
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Alex Davis</h4>
+                                <p class="text-gray-400 text-sm">Full-Stack Developer</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"Best email service for developers. The testing sandbox and analytics dashboard give us insights we never had before."</p>
+                        <div class="flex mt-4">
+                            <span class="text-[#e99b63]">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced CTA Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black/50 to-black relative overflow-hidden" id="cta">
+            <div class="absolute inset-0 bg-gradient-radial opacity-20 -z-10"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Ready to transform your email workflow?</h2>
+                    <p class="text-gray-400 mb-10 max-w-2xl mx-auto">Join thousands of developers who trust FAFCODE to streamline their email infrastructure.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                        <button class="btn-primary bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-4 px-10 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
+                            Get Started for Free
+                        </button>
+                        <button class="btn-secondary border border-gray-600 hover:border-[#e99b63] text-white font-medium py-4 px-10 rounded-full transform transition-all duration-300 hover:scale-105">
+                            Talk to Sales
+                        </button>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-[#e99b63]">5M+</div>
+                            <div class="text-gray-400 text-sm">Emails Delivered</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-[#e99b63]">500+</div>
+                            <div class="text-gray-400 text-sm">Companies</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-[#e99b63]">99.9%</div>
+                            <div class="text-gray-400 text-sm">Uptime SLA</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-[#e99b63]">24/7</div>
+                            <div class="text-gray-400 text-sm">Support</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
