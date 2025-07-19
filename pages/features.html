@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAFCODE Features - Planned functionality for developer-friendly email infrastructure">
+    <title>Features | FAFCODE - Email for Developers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black font-sans text-white overflow-x-hidden">
+    <main class="relative">
+        <!-- Enhanced Header -->
+        <header class="fixed w-full flex justify-between items-center py-4 px-4 lg:px-20 leading-relaxed bg-black/80 backdrop-blur-sm z-40 transition-all duration-300" id="header">
+            <a href="../index.html" class="logo text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
+            
+            <div class="hidden md:flex flex-1 justify-center mx-4">
+                <nav class="flex items-center gap-4 sm:gap-8 md:gap-12">
+                    <a href="company.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        COMPANY
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="features.html" class="text-[#e99b63] text-sm sm:text-base tracking-wider transition-colors relative group">
+                        FEATURES
+                        <span class="absolute bottom-0 left-0 w-full h-px bg-[#e99b63] transition-all duration-300"></span>
+                    </a>
+                    <a href="resources.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        RESOURCES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="docs.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        DOCS
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="../silo/signin.html" class="hidden md:block bg-[#a7a7a7] hover:bg-white text-black py-2 px-4 sm:py-3 sm:px-8 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer z-50 whitespace-nowrap">
+                    SIGNIN
+                </a>
+                <button id="menuButton" class="md:hidden p-2 z-50 focus:outline-none">
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-30 p-5 transition-all duration-300">
+            <nav class="flex flex-col gap-8 items-center mt-10">
+                <a href="company.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">COMPANY</a>
+                <a href="features.html" class="text-[#e99b63] text-xl tracking-wider">FEATURES</a>
+                <a href="resources.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">RESOURCES</a>
+                <a href="docs.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">DOCS</a>
+                <a href="../silo/signin.html" class="mt-6 bg-[#a7a7a7] hover:bg-white text-black py-3 px-10 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    SIGNIN
+                </a>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-4 lg:px-20 pt-32 pb-20 relative">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="animate-fade-in">
+                    <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
+                        Conceptual<br/>
+                        <span class="gradient-text">Features</span>
+                    </h1>
+                    <p class="text-gray-300 text-xl max-w-3xl mx-auto mb-12">
+                        Explore the planned functionality that would make FAFCODE a developer-first email infrastructure solution. These features showcase modern development practices and user-centered design.
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-[#e99b63] to-[#f5d5b8] mx-auto rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Overview -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Developer Experience First</h2>
+                        <p class="text-gray-300 text-lg mb-8">
+                            Every feature concept is designed with the developer workflow in mind. From API design to testing tools, FAFCODE would prioritize the developer experience above all else.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Code-first approach to email templates</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Comprehensive testing environment</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Real-time debugging and monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Code Example</h3>
+                        <pre class="text-sm text-gray-300 overflow-x-auto"><code>// Conceptual API Usage
+import { FafcodeClient } from '@fafcode/sdk';
+
+const client = new FafcodeClient({
+  apiKey: process.env.FAFCODE_API_KEY
+});
+
+await client.emails.send({
+  template: 'welcome-user',
+  to: user.email,
+  variables: {
+    username: user.name,
+    verificationLink: generateLink()
+  }
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Feature Showcase -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Interactive Feature Demo</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">Click on each feature to see how it would work in practice</p>
+                </div>
+
+                <!-- Feature Tabs -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="feature-tab active px-6 py-3 rounded-full bg-[#e99b63] text-white font-medium transition-all duration-300" data-tab="api">
+                        API Design
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:bg-gray-700" data-tab="templates">
+                        Template Engine
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:bg-gray-700" data-tab="testing">
+                        Testing Suite
+                    </button>
+                    <button class="feature-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:bg-gray-700" data-tab="analytics">
+                        Analytics
+                    </button>
+                </div>
+
+                <!-- Feature Content -->
+                <div class="feature-content">
+                    <!-- API Design Tab -->
+                    <div class="tab-content active" id="api">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">RESTful API Design</h3>
+                                <p class="text-gray-300 mb-6">
+                                    A well-designed API that follows REST principles and provides intuitive endpoints for all email operations.
+                                </p>
+                                <div class="space-y-4">
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded">POST</span>
+                                            <code class="text-gray-300">/api/v1/emails/send</code>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">Send transactional emails</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="px-2 py-1 text-xs bg-blue-500/20 text-blue-400 rounded">GET</span>
+                                            <code class="text-gray-300">/api/v1/emails/{id}/status</code>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">Check delivery status</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-400 rounded">PUT</span>
+                                            <code class="text-gray-300">/api/v1/templates/{id}</code>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">Update email templates</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                                <h4 class="text-lg font-semibold mb-4 text-[#e99b63]">Example Response</h4>
+                                <pre class="text-sm text-gray-300 overflow-x-auto"><code>{
+  "id": "email_1234567890",
+  "status": "sent",
+  "to": "user@example.com",
+  "template": "welcome-user",
+  "sent_at": "2025-01-09T10:30:00Z",
+  "delivery_time": "0.342s",
+  "events": [
+    {
+      "type": "sent",
+      "timestamp": "2025-01-09T10:30:00Z"
+    },
+    {
+      "type": "delivered", 
+      "timestamp": "2025-01-09T10:30:02Z"
+    }
+  ]
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Engine Tab -->
+                    <div class="tab-content" id="templates">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">Git-Based Templates</h3>
+                                <p class="text-gray-300 mb-6">
+                                    Email templates stored in Git repositories with version control, branching, and collaborative editing capabilities.
+                                </p>
+                                <div class="space-y-4">
+                                    <div class="feature-card bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <h5 class="font-semibold text-[#e99b63] mb-2">Version Control</h5>
+                                        <p class="text-gray-400 text-sm">Track changes, create branches, and merge template updates just like code.</p>
+                                    </div>
+                                    <div class="feature-card bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <h5 class="font-semibold text-[#e99b63] mb-2">Component System</h5>
+                                        <p class="text-gray-400 text-sm">Reusable template components with props and conditional rendering.</p>
+                                    </div>
+                                    <div class="feature-card bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <h5 class="font-semibold text-[#e99b63] mb-2">Live Preview</h5>
+                                        <p class="text-gray-400 text-sm">Real-time preview with test data and multiple device views.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                                <h4 class="text-lg font-semibold mb-4 text-[#e99b63]">Template Structure</h4>
+                                <pre class="text-sm text-gray-300 overflow-x-auto"><code>templates/
+├── components/
+│   ├── Header.hbs
+│   ├── Footer.hbs
+│   └── Button.hbs
+├── layouts/
+│   └── base.hbs
+├── emails/
+│   ├── welcome.hbs
+│   ├── reset-password.hbs
+│   └── newsletter.hbs
+└── config/
+    ├── variables.json
+    └── styles.scss</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing Suite Tab -->
+                    <div class="tab-content" id="testing">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">Comprehensive Testing</h3>
+                                <p class="text-gray-300 mb-6">
+                                    Built-in testing tools that help developers ensure their email campaigns work perfectly across all platforms.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="w-8 h-8 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#e99b63]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <h5 class="font-semibold mb-2">Client Testing</h5>
+                                        <p class="text-gray-400 text-sm">Test across 50+ email clients</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="w-8 h-8 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#e99b63]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                                            </svg>
+                                        </div>
+                                        <h5 class="font-semibold mb-2">Device Preview</h5>
+                                        <p class="text-gray-400 text-sm">Mobile, tablet, desktop views</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="w-8 h-8 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#e99b63]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.25-4.875v-.75a.75.75 0 00-.75-.75h-.75a.75.75 0 00-.75.75v.75m0 0v3.75a.75.75 0 00.75.75h.75a.75.75 0 00.75-.75V3.75m0 0v-.375c0-.621-.504-1.125-1.125-1.125H15a2.25 2.25 0 00-2.25 2.25v1.125m4.5-1.5v1.5m0 0v1.125" />
+                                            </svg>
+                                        </div>
+                                        <h5 class="font-semibold mb-2">A/B Testing</h5>
+                                        <p class="text-gray-400 text-sm">Split test different versions</p>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                        <div class="w-8 h-8 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#e99b63]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                            </svg>
+                                        </div>
+                                        <h5 class="font-semibold mb-2">Spam Check</h5>
+                                        <p class="text-gray-400 text-sm">Analyze deliverability score</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                                <h4 class="text-lg font-semibold mb-4 text-[#e99b63]">Testing Dashboard</h4>
+                                <div class="space-y-4">
+                                    <div class="bg-black/30 p-3 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-300">Gmail Desktop</span>
+                                            <span class="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded">✓ Passed</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-500 h-2 rounded-full" style="width: 98%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-black/30 p-3 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-300">Outlook Mobile</span>
+                                            <span class="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-400 rounded">⚠ Warning</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-black/30 p-3 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-300">Apple Mail</span>
+                                            <span class="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded">✓ Passed</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-500 h-2 rounded-full" style="width: 96%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div class="tab-content" id="analytics">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">Real-time Analytics</h3>
+                                <p class="text-gray-300 mb-6">
+                                    Comprehensive analytics dashboard providing insights into email performance, user engagement, and delivery metrics.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800 text-center">
+                                        <div class="text-2xl font-bold text-[#e99b63] mb-1">98.2%</div>
+                                        <div class="text-gray-400 text-sm">Delivery Rate</div>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800 text-center">
+                                        <div class="text-2xl font-bold text-[#e99b63] mb-1">24.5%</div>
+                                        <div class="text-gray-400 text-sm">Open Rate</div>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800 text-center">
+                                        <div class="text-2xl font-bold text-[#e99b63] mb-1">3.2%</div>
+                                        <div class="text-gray-400 text-sm">Click Rate</div>
+                                    </div>
+                                    <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800 text-center">
+                                        <div class="text-2xl font-bold text-[#e99b63] mb-1">0.1%</div>
+                                        <div class="text-gray-400 text-sm">Bounce Rate</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-300">Sent</span>
+                                        <span class="text-[#e99b63]">10,245</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-300">Delivered</span>
+                                        <span class="text-green-400">10,061</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-300">Opened</span>
+                                        <span class="text-blue-400">2,465</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-300">Clicked</span>
+                                        <span class="text-purple-400">328</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                                <h4 class="text-lg font-semibold mb-4 text-[#e99b63]">Performance Chart</h4>
+                                <div class="h-48 bg-black/30 rounded-lg flex items-end justify-between p-4">
+                                    <!-- Mock Chart Bars -->
+                                    <div class="flex items-end space-x-2 h-full w-full">
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 60%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 75%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 45%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 80%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 65%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 90%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 70%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 85%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 55%"></div>
+                                        <div class="bg-[#e99b63] w-4 rounded-t" style="height: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-400 mt-2">
+                                    <span>Jan</span>
+                                    <span>Feb</span>
+                                    <span>Mar</span>
+                                    <span>Apr</span>
+                                    <span>May</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Architecture</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">The planned technical stack and architecture that would power FAFCODE</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Backend -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3V6a3 3 0 013-3h13.5a3 3 0 013 3v5.25a3 3 0 01-3 3m-16.5 0a3 3 0 013-3h13.5a3 3 0 013 3v5.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3v-5.25z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Backend Services</h3>
+                        <p class="text-gray-400 mb-4">Microservices architecture with Node.js and TypeScript</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Node.js + Express</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">PostgreSQL Database</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Redis Caching</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Docker Containers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Dashboard & UI</h3>
+                        <p class="text-gray-400 mb-4">Modern React-based dashboard with real-time updates</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">React + TypeScript</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Tailwind CSS</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">WebSocket Updates</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">PWA Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Cloud Infrastructure</h3>
+                        <p class="text-gray-400 mb-4">Scalable cloud deployment with global edge locations</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">AWS/GCP Hosting</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Kubernetes Orchestration</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Global CDN</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Auto-scaling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 px-4 lg:px-20 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-light mb-4">FAFCODE</h3>
+                    <p class="text-gray-400">A student project concept for developer-friendly email infrastructure.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 mb-8">
+                    <a href="../index.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Home</a>
+                    <a href="company.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Company</a>
+                    <a href="features.html" class="text-[#e99b63]">Features</a>
+                    <a href="resources.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Resources</a>
+                    <a href="docs.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Docs</a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 FAFCODE Student Project. Educational purposes only.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Feature tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.feature-tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'bg-[#e99b63]', 'text-white');
+                        t.classList.add('bg-gray-800', 'text-gray-300');
+                    });
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active', 'bg-[#e99b63]', 'text-white');
+                    tab.classList.remove('bg-gray-800', 'text-gray-300');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Mobile menu functionality
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            let isMenuOpen = false;
+
+            menuButton.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.style.transform = 'rotate(90deg)';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.style.transform = 'rotate(0deg)';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    menuButton.click();
+                }
+            });
+
+            // Animate feature cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <style>
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAFCODE Resources - Learning materials, tutorials, and code examples for email development">
+    <title>Resources | FAFCODE - Email for Developers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black font-sans text-white overflow-x-hidden">
+    <main class="relative">
+        <!-- Enhanced Header -->
+        <header class="fixed w-full flex justify-between items-center py-4 px-4 lg:px-20 leading-relaxed bg-black/80 backdrop-blur-sm z-40 transition-all duration-300" id="header">
+            <a href="../index.html" class="logo text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
+            
+            <div class="hidden md:flex flex-1 justify-center mx-4">
+                <nav class="flex items-center gap-4 sm:gap-8 md:gap-12">
+                    <a href="company.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        COMPANY
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="features.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        FEATURES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="resources.html" class="text-[#e99b63] text-sm sm:text-base tracking-wider transition-colors relative group">
+                        RESOURCES
+                        <span class="absolute bottom-0 left-0 w-full h-px bg-[#e99b63] transition-all duration-300"></span>
+                    </a>
+                    <a href="docs.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        DOCS
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="../silo/signin.html" class="hidden md:block bg-[#a7a7a7] hover:bg-white text-black py-2 px-4 sm:py-3 sm:px-8 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer z-50 whitespace-nowrap">
+                    SIGNIN
+                </a>
+                <button id="menuButton" class="md:hidden p-2 z-50 focus:outline-none">
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-30 p-5 transition-all duration-300">
+            <nav class="flex flex-col gap-8 items-center mt-10">
+                <a href="company.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">COMPANY</a>
+                <a href="features.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">FEATURES</a>
+                <a href="resources.html" class="text-[#e99b63] text-xl tracking-wider">RESOURCES</a>
+                <a href="docs.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">DOCS</a>
+                <a href="../silo/signin.html" class="mt-6 bg-[#a7a7a7] hover:bg-white text-black py-3 px-10 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    SIGNIN
+                </a>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-4 lg:px-20 pt-32 pb-20 relative">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="animate-fade-in">
+                    <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
+                        Learning<br/>
+                        <span class="gradient-text">Resources</span>
+                    </h1>
+                    <p class="text-gray-300 text-xl max-w-3xl mx-auto mb-12">
+                        Curated learning materials, code examples, and educational resources to help you master modern web development and email infrastructure concepts.
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-[#e99b63] to-[#f5d5b8] mx-auto rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Categories -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Code Examples -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Code Examples</h3>
+                        <p class="text-gray-400 mb-6">Practical code snippets and examples demonstrating email API integration, template systems, and modern development practices.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Email API implementations</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Template engine concepts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Error handling patterns</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tutorials -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Learning Tutorials</h3>
+                        <p class="text-gray-400 mb-6">Step-by-step guides covering everything from basic email concepts to advanced development techniques and best practices.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Getting started guides</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Advanced concepts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Best practices</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Libraries -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Tools & Libraries</h3>
+                        <p class="text-gray-400 mb-6">Curated collection of useful development tools, libraries, and frameworks that would be essential for building email infrastructure.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Development frameworks</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Testing utilities</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-gray-300">Performance tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Examples Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Code Examples</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">Practical examples showcasing modern development patterns</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Basic Email Sending -->
+                    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Basic Email Sending</h3>
+                        <pre class="text-sm text-gray-300 overflow-x-auto bg-black/50 p-4 rounded-lg"><code>// Node.js example
+import { FafcodeClient } from '@fafcode/sdk';
+
+const client = new FafcodeClient({
+  apiKey: process.env.FAFCODE_API_KEY,
+  environment: 'production'
+});
+
+async function sendWelcomeEmail(user) {
+  try {
+    const result = await client.emails.send({
+      to: user.email,
+      template: 'welcome',
+      variables: {
+        firstName: user.firstName,
+        verificationUrl: generateVerificationUrl(user.id)
+      }
+    });
+    
+    console.log('Email sent:', result.id);
+    return result;
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    throw error;
+  }
+}</code></pre>
+                    </div>
+
+                    <!-- Template System -->
+                    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Template System</h3>
+                        <pre class="text-sm text-gray-300 overflow-x-auto bg-black/50 p-4 rounded-lg"><code><!-- welcome.hbs -->
+{{> header}}
+
+&lt;div class="container"&gt;
+  &lt;h1&gt;Welcome {{firstName}}!&lt;/h1&gt;
+  &lt;p&gt;Thank you for joining our platform.&lt;/p&gt;
+  
+  {{#if verificationUrl}}
+    {{> button 
+       text="Verify Email" 
+       url=verificationUrl 
+       type="primary"}}
+  {{/if}}
+&lt;/div&gt;
+
+{{> footer}}</code></pre>
+                    </div>
+
+                    <!-- Error Handling -->
+                    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Error Handling</h3>
+                        <pre class="text-sm text-gray-300 overflow-x-auto bg-black/50 p-4 rounded-lg"><code>// Robust error handling
+class EmailService {
+  async sendEmail(emailData) {
+    const maxRetries = 3;
+    let attempt = 0;
+    
+    while (attempt &lt; maxRetries) {
+      try {
+        return await this.client.send(emailData);
+      } catch (error) {
+        attempt++;
+        
+        if (error.code === 'RATE_LIMIT') {
+          await this.delay(Math.pow(2, attempt) * 1000);
+          continue;
+        }
+        
+        if (attempt === maxRetries) {
+          throw new EmailError('Max retries exceeded', error);
+        }
+      }
+    }
+  }
+}</code></pre>
+                    </div>
+
+                    <!-- Testing -->
+                    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Email Testing</h3>
+                        <pre class="text-sm text-gray-300 overflow-x-auto bg-black/50 p-4 rounded-lg"><code>// Jest test example
+describe('EmailService', () => {
+  test('should send welcome email', async () => {
+    const mockUser = {
+      email: 'test@example.com',
+      firstName: 'John'
+    };
+    
+    const result = await emailService.sendWelcomeEmail(mockUser);
+    
+    expect(result.status).toBe('sent');
+    expect(result.to).toBe(mockUser.email);
+    expect(result.template).toBe('welcome');
+  });
+  
+  test('should handle invalid email', async () => {
+    await expect(
+      emailService.sendEmail({ to: 'invalid-email' })
+    ).rejects.toThrow('Invalid email format');
+  });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Path -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Learning Path</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">A structured approach to mastering email development</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Beginner -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-green-400 font-bold text-xl">1</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-3 text-green-400">Beginner</h3>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Email basics</li>
+                            <li>HTML emails</li>
+                            <li>SMTP concepts</li>
+                            <li>Simple sending</li>
+                        </ul>
+                    </div>
+
+                    <!-- Intermediate -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-yellow-400 font-bold text-xl">2</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-3 text-yellow-400">Intermediate</h3>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Template systems</li>
+                            <li>API integration</li>
+                            <li>Error handling</li>
+                            <li>Basic testing</li>
+                        </ul>
+                    </div>
+
+                    <!-- Advanced -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-orange-400 font-bold text-xl">3</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-3 text-orange-400">Advanced</h3>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Deliverability</li>
+                            <li>Analytics</li>
+                            <li>A/B testing</li>
+                            <li>Automation</li>
+                        </ul>
+                    </div>
+
+                    <!-- Expert -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-red-400 font-bold text-xl">4</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-3 text-red-400">Expert</h3>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Infrastructure</li>
+                            <li>Scaling</li>
+                            <li>Security</li>
+                            <li>Compliance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Tools -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Recommended Tools</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">Essential tools for modern email development</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Development -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4">Development</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Node.js</span>
+                                <span class="text-[#e99b63] text-sm">Runtime</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Express.js</span>
+                                <span class="text-[#e99b63] text-sm">Framework</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">TypeScript</span>
+                                <span class="text-[#e99b63] text-sm">Language</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4">Testing</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Jest</span>
+                                <span class="text-[#e99b63] text-sm">Testing</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Cypress</span>
+                                <span class="text-[#e99b63] text-sm">E2E Testing</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Postman</span>
+                                <span class="text-[#e99b63] text-sm">API Testing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deployment -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4">Deployment</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">Docker</span>
+                                <span class="text-[#e99b63] text-sm">Containers</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">AWS/GCP</span>
+                                <span class="text-[#e99b63] text-sm">Cloud</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-black/30 rounded-lg">
+                                <span class="text-gray-300">GitHub Actions</span>
+                                <span class="text-[#e99b63] text-sm">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 px-4 lg:px-20 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-light mb-4">FAFCODE</h3>
+                    <p class="text-gray-400">A student project concept for developer-friendly email infrastructure.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 mb-8">
+                    <a href="../index.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Home</a>
+                    <a href="company.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Company</a>
+                    <a href="features.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Features</a>
+                    <a href="resources.html" class="text-[#e99b63]">Resources</a>
+                    <a href="docs.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Docs</a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 FAFCODE Student Project. Educational purposes only.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            let isMenuOpen = false;
+
+            menuButton.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.style.transform = 'rotate(90deg)';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.style.transform = 'rotate(0deg)';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    menuButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

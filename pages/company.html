@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About FAFCODE - A student's journey into modern web development and email infrastructure concepts">
+    <title>Company | FAFCODE - Email for Developers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black font-sans text-white overflow-x-hidden">
+    <main class="relative">
+        <!-- Enhanced Header -->
+        <header class="fixed w-full flex justify-between items-center py-4 px-4 lg:px-20 leading-relaxed bg-black/80 backdrop-blur-sm z-40 transition-all duration-300" id="header">
+            <a href="../index.html" class="logo text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
+            
+            <div class="hidden md:flex flex-1 justify-center mx-4">
+                <nav class="flex items-center gap-4 sm:gap-8 md:gap-12">
+                    <a href="company.html" class="text-[#e99b63] text-sm sm:text-base tracking-wider transition-colors relative group">
+                        COMPANY
+                        <span class="absolute bottom-0 left-0 w-full h-px bg-[#e99b63] transition-all duration-300"></span>
+                    </a>
+                    <a href="features.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        FEATURES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="resources.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        RESOURCES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="docs.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        DOCS
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="../silo/signin.html" class="hidden md:block bg-[#a7a7a7] hover:bg-white text-black py-2 px-4 sm:py-3 sm:px-8 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer z-50 whitespace-nowrap">
+                    SIGNIN
+                </a>
+                <button id="menuButton" class="md:hidden p-2 z-50 focus:outline-none">
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-30 p-5 transition-all duration-300">
+            <nav class="flex flex-col gap-8 items-center mt-10">
+                <a href="company.html" class="text-[#e99b63] text-xl tracking-wider">COMPANY</a>
+                <a href="features.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">FEATURES</a>
+                <a href="resources.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">RESOURCES</a>
+                <a href="docs.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">DOCS</a>
+                <a href="../silo/signin.html" class="mt-6 bg-[#a7a7a7] hover:bg-white text-black py-3 px-10 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    SIGNIN
+                </a>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-4 lg:px-20 pt-32 pb-20 relative">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="animate-fade-in">
+                    <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
+                        Our<br/>
+                        <span class="gradient-text">Story</span>
+                    </h1>
+                    <p class="text-gray-300 text-xl max-w-3xl mx-auto mb-12">
+                        FAFCODE began as a student's ambitious project to understand modern web development and reimagine how developers interact with email infrastructure.
+                    </p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-[#e99b63] to-[#f5d5b8] mx-auto rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Origin Story -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">The Beginning</h2>
+                        <p class="text-gray-300 text-lg mb-6">
+                            It all started with a simple frustration: why is email integration so complicated for developers? 
+                            As a student learning web development, I found myself struggling with email APIs that seemed 
+                            designed for marketers, not developers.
+                        </p>
+                        <p class="text-gray-300 text-lg mb-8">
+                            This project represents my journey into modern web development, exploring concepts like API design, 
+                            developer experience, and building tools that developers actually want to use.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">1</span>
+                                </div>
+                                <span class="text-gray-300">Identified the problem with existing email solutions</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">2</span>
+                                </div>
+                                <span class="text-gray-300">Researched modern development practices</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-[#e99b63] rounded-full flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">3</span>
+                                </div>
+                                <span class="text-gray-300">Designed a developer-first approach</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-4 text-[#e99b63]">Project Timeline</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-[#e99b63]/30 pl-6">
+                                <div class="text-[#e99b63] font-semibold">Phase 1: Research</div>
+                                <div class="text-gray-400 text-sm">Understanding the problem space</div>
+                            </div>
+                            <div class="border-l-2 border-[#e99b63]/30 pl-6">
+                                <div class="text-[#e99b63] font-semibold">Phase 2: Design</div>
+                                <div class="text-gray-400 text-sm">Conceptualizing the solution</div>
+                            </div>
+                            <div class="border-l-2 border-[#e99b63] pl-6">
+                                <div class="text-[#e99b63] font-semibold">Phase 3: Prototype</div>
+                                <div class="text-gray-400 text-sm">Building this website concept</div>
+                            </div>
+                            <div class="border-l-2 border-gray-600 pl-6 opacity-50">
+                                <div class="text-gray-500 font-semibold">Phase 4: Implementation</div>
+                                <div class="text-gray-500 text-sm">Future learning project</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Mission & Vision</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">What FAFCODE represents as a learning project</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Mission -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.58-5.84a14.917 14.917 0 015.84 2.58M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4">Mission</h3>
+                        <p class="text-gray-300 text-center">
+                            To demonstrate how modern web development principles can be applied to create 
+                            developer-friendly tools and services. This project showcases the importance 
+                            of developer experience in software design.
+                        </p>
+                    </div>
+
+                    <!-- Vision -->
+                    <div class="feature-card bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4">Vision</h3>
+                        <p class="text-gray-300 text-center">
+                            To inspire a new generation of developers to think beyond just building features 
+                            to creating delightful experiences. Every tool should be built with the end user 
+                            (in this case, developers) at the center.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Journey -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Learning Journey</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">Technologies and concepts explored through this project</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Frontend Development -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Frontend Mastery</h3>
+                        <p class="text-gray-400 mb-4">Learned modern HTML5, CSS3, and JavaScript</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Semantic HTML structure</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">CSS Grid & Flexbox</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Modern JavaScript ES6+</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Responsive design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Principles -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.592l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Design Thinking</h3>
+                        <p class="text-gray-400 mb-4">Understanding UX/UI principles and design systems</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Color theory & typography</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">User experience design</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Design systems</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Accessibility principles</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Developer Tools -->
+                    <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                        <div class="w-12 h-12 bg-[#e99b63]/20 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Development Tools</h3>
+                        <p class="text-gray-400 mb-4">Modern development workflow and tooling</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Git version control</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Browser dev tools</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Performance optimization</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-[#e99b63] rounded-full"></div>
+                                <span class="text-sm text-gray-300">Code organization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Touch -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="animate-fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">A Personal Note</h2>
+                    <div class="bg-gray-900/50 p-8 md:p-12 rounded-xl border border-gray-800 mb-8">
+                        <div class="text-6xl text-[#e99b63] mb-6">"</div>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6 italic">
+                            This project represents more than just lines of code. It's a testament to the power of 
+                            curiosity, the importance of user-centered design, and the endless possibilities that 
+                            emerge when we dare to reimagine how things could be better.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed italic">
+                            Every feature conceptualized, every interaction designed, and every line of code written 
+                            has been a step forward in my journey as a developer. FAFCODE may be fictional, but the 
+                            learning and growth it represents are very real.
+                        </p>
+                        <div class="text-6xl text-[#e99b63] mt-6 rotate-180">"</div>
+                    </div>
+                    <div class="text-[#e99b63] font-semibold">- The FAFCODE Creator</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Core Values</h2>
+                    <p class="text-gray-400 max-w-3xl mx-auto">The principles that guide this project and my development journey</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75-7.478a12.06 12.06 0 00-4.5 0m3.75 7.478a12.077 12.077 0 003.75-7.478m-3.75 7.478a12.077 12.077 0 01-3.75-7.478m3.75-7.478a12.06 12.06 0 00-3.75 0m3.75 0a12.06 12.06 0 00-3.75 0m0 3.75h.008v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Continuous Learning</h3>
+                        <p class="text-gray-400 text-sm">Always exploring new technologies and improving skills</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">User-Centered</h3>
+                        <p class="text-gray-400 text-sm">Every decision is made with the end user in mind</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Innovation</h3>
+                        <p class="text-gray-400 text-sm">Challenging conventions and exploring new possibilities</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-[#e99b63]/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Quality</h3>
+                        <p class="text-gray-400 text-sm">Commitment to excellence in every detail</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 px-4 lg:px-20 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-light mb-4">FAFCODE</h3>
+                    <p class="text-gray-400">A student project concept for developer-friendly email infrastructure.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 mb-8">
+                    <a href="../index.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Home</a>
+                    <a href="company.html" class="text-[#e99b63]">Company</a>
+                    <a href="features.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Features</a>
+                    <a href="resources.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Resources</a>
+                    <a href="docs.html" class="text-gray-400 hover:text-[#e99b63] transition-colors">Docs</a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 FAFCODE Student Project. Educational purposes only.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            let isMenuOpen = false;
+
+            menuButton.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.style.transform = 'rotate(90deg)';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.style.transform = 'rotate(0deg)';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    menuButton.click();
+                }
+            });
+
+            // Animate feature cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
