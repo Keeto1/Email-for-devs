@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAFCODE - Modern email solution for developers and tech teams">
+    <title>FAFCODE | Email for Developers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@splinetool/runtime@1.0.42/build/runtime.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Spline SDK -->
+    <script src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
+</head>
+<body class="bg-black font-sans text-white overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div class="animate-pulse flex flex-col items-center">
+            <div class="w-16 h-16 border-4 border-[#e99b63] border-t-transparent rounded-full animate-spin"></div>
+            <p class="mt-4 text-gray-300">Loading FAFCODE...</p>
+        </div>
+    </div>
+
+    <main class="relative">
+        <!-- Background elements -->
+        <img src="gradient.png" alt="gradient background" class="absolute ml-[55%] mt-[10%] opacity-60 -z-10">
+        <div class="h-0 w-[40rem] absolute top-[20%] right-[-5%] shadow-[0_0_900px_20px_#e99b63] -rotate-[30deg] -z-10"></div>
+
+        <!-- Header -->
+        <header class="fixed w-full flex justify-between items-center py-4 px-4 lg:px-20 leading-relaxed bg-black/80 backdrop-blur-sm z-40 transition-all duration-300" id="header">
+            <a href="index.html" class="text-3xl md:text-4xl lg:text-5xl m-0 font-light hover:text-[#e99b63] transition-colors duration-300">FAFCODE</a>
+            
+            <div class="hidden md:flex flex-1 justify-center mx-4">
+                <nav class="flex items-center gap-4 sm:gap-8 md:gap-12">
+                    <a href="pages/company.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        COMPANY
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="pages/features.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        FEATURES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="pages/resources.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        RESOURCES
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="pages/docs.html" class="text-white text-sm sm:text-base tracking-wider transition-colors hover:text-[#e99b63] relative group">
+                        DOCS
+                        <span class="absolute bottom-0 left-0 w-0 h-px bg-[#e99b63] transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="silo/signin.html" class="hidden md:block bg-[#a7a7a7] hover:bg-white text-black py-2 px-4 sm:py-3 sm:px-8 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer z-50 whitespace-nowrap">
+                    SIGNIN
+                </a>
+                <button id="menuButton" class="md:hidden p-2 z-50 focus:outline-none">
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-30 p-5 transition-all duration-300">
+            <nav class="flex flex-col gap-8 items-center mt-10">
+                <a href="pages/company.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">COMPANY</a>
+                <a href="pages/features.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">FEATURES</a>
+                <a href="pages/resources.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">RESOURCES</a>
+                <a href="pages/docs.html" class="text-white text-xl tracking-wider transition-colors hover:text-[#e99b63]">DOCS</a>
+                <a href="silo/signin.html" class="mt-6 bg-[#a7a7a7] hover:bg-white text-black py-3 px-10 rounded-full border-none font-medium transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    SIGNIN
+                </a>
+            </nav>
+        </div>
+
+        <!-- Spline Robot - Fixed Container -->
+        <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10">
+            <spline-viewer 
+                url="https://prod.spline.design/CH26Nx1vA1EGvmm9yqNuibtF/scene.splinecode"
+                loading="eager"
+                events-target="global"
+            ></spline-viewer>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col lg:flex-row items-center justify-between px-4 lg:px-20 pt-32 pb-20">
+            <div class="w-full lg:w-1/2 z-10 mb-12 lg:mb-0 animate-fade-in">
+                <div class="relative w-full sm:w-48 h-10 bg-gradient-to-r from-[#656565] to-[#e99b63] rounded-full hover:shadow-2xl hover:shadow-orange-500 mb-8 animate-slide-up">
+                    <div class="absolute inset-[3px] bg-white rounded-full flex items-center justify-center gap-1 transform transition-all duration-300 hover:scale-105 hover:cursor-pointer">
+                        <img src="diamond-alt.png" alt="diamond icon" class="h-6 w-6">
+                        <p class="text-black text-sm">INTRODUCING</p>
+                    </div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight animate-slide-up" style="animation-delay: 0.2s;">
+                    EMAIL FOR<br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e99b63] to-[#f5d5b8]">DEVELOPERS</span>
+                </h1>
+                <p class="text-gray-300 mt-6 text-lg max-w-lg animate-fade-in" style="animation-delay: 0.4s;">
+                    A modern email solution designed specifically for developers and tech teams. Build, test, and deploy email workflows with the tools you already love.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-8 animate-slide-up" style="animation-delay: 0.6s;">
+                    <button class="bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-3 px-8 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
+                        Get Started
+                    </button>
+                    <a href="pages/docs.html" class="border border-gray-600 hover:border-[#e99b63] text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105">
+                        Get Docs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-black to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-4">Developer-First Features</h2>
+                <p class="text-gray-400 text-center max-w-3xl mx-auto mb-16">Built with modern development workflows in mind</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">API First Design</h3>
+                        <p class="text-gray-400">RESTful API with comprehensive documentation and SDKs for all major languages.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Templates as Code</h3>
+                        <p class="text-gray-400">Version-controlled email templates with Git integration and CI/CD pipelines.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-[#e99b63]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#e99b63]/10 transform hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-[#e99b63]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#e99b63]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Test Mode</h3>
+                        <p class="text-gray-400">Sandbox environment with email previews and automated testing tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 lg:px-20 bg-gradient-to-b from-gray-900/50 to-black">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">Ready to transform your email workflow?</h2>
+                <p class="text-gray-400 mb-10 max-w-2xl mx-auto">Join to streamline your email infrastructure with FAFCODE.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-[#e99b63] hover:bg-[#f5b881] text-white font-medium py-3 px-8 rounded-full hover:shadow-2xl hover:shadow-orange-500 transform transition-all duration-300 hover:scale-105">
+                        Get Started for Free
+                    </button>
+                    <button class="border border-gray-600 hover:border-[#e99b63] text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105">
+                        Talk to Sales
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-12 px-4 lg:px-20 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-light mb-4">FAFCODE</h3>
+                    <p class="text-gray-400">Email infrastructure for the modern web.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Integrations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">API Reference</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-300 font-medium mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2025 FAFCODE. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                 
+                    <a href="#" class="text-gray-400 hover:text-[#e99b63] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="scroll.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
