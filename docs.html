@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAFCODE | Documentation</title>
+    <meta name="description" content="Complete documentation for FAFCODE - Email solutions for developers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'slide-left': 'slideLeft 0.8s ease-out',
+                        'slide-right': 'slideRight 0.8s ease-out',
+                        'zoom-in': 'zoomIn 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'code-typing': 'codeTyping 4s steps(40) infinite',
+                        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.5)', opacity: '0' },
+                            '50%': { transform: 'scale(1.1)', opacity: '0.8' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(233, 155, 99, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(233, 155, 99, 0.8)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        codeTyping: {
+                            '0%': { width: '0' },
+                            '50%': { width: '100%' },
+                            '100%': { width: '0' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary-orange: #e99b63;
+            --primary-orange-light: #f5b881;
+            --primary-gradient: linear-gradient(135deg, #e99b63, #f5d5b8);
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-orange: rgba(233, 155, 99, 0.3);
+        }
+
+        body {
+            background: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animated gradient background */
+        .animated-gradient {
+            background: linear-gradient(45deg, #000000, #1a1a1a, #e99b63, #000000);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Code block styling */
+        .code-block {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            border: 1px solid var(--border-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-gradient);
+            animation: scan 3s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: -100%; }
+        }
+
+        /* Interactive hover effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(233, 155, 99, 0.2);
+        }
+
+        /* Sidebar navigation */
+        .sidebar-nav {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(0, 0, 0, 0.95));
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border-orange);
+        }
+
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(233, 155, 99, 0.1);
+            border-left: 3px solid var(--primary-orange);
+        }
+
+        .nav-item.active {
+            background: rgba(233, 155, 99, 0.2);
+            border-left: 3px solid var(--primary-orange);
+        }
+
+        /* API endpoint styling */
+        .api-endpoint {
+            background: linear-gradient(90deg, rgba(233, 155, 99, 0.1), rgba(233, 155, 99, 0.05));
+            border-left: 4px solid var(--primary-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .api-endpoint::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--primary-gradient);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: floatParticle 20s linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Search bar styling */
+        .search-bar {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .search-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: var(--primary-gradient);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+
+        .search-bar:focus-within::before {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Floating Particles Background -->
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s; width: 2px; height: 2px;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s; width: 3px; height: 3px;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s; width: 1px; height: 1px;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s; width: 2px; height: 2px;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 8s; width: 3px; height: 3px;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 10s; width: 1px; height: 1px;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 12s; width: 2px; height: 2px;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 14s; width: 3px; height: 3px;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 16s; width: 1px; height: 1px;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full bg-black/90 backdrop-blur-sm border-b border-orange-500/20 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-3xl font-light gradient-text hover:scale-105 transition-transform duration-300">
+                    FAFCODE
+                </a>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:block relative">
+                    <div class="search-bar rounded-lg p-3 w-80">
+                        <input type="text" placeholder="Search documentation..." 
+                               class="bg-transparent text-white w-full outline-none placeholder-gray-400">
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-orange-400 transition-colors">Home</a>
+                    <a href="features.html" class="text-gray-300 hover:text-orange-400 transition-colors">Features</a>
+                    <a href="docs.html" class="text-orange-400 font-medium">Docs</a>
+                    <a href="#" class="bg-gradient-to-r from-orange-500 to-orange-400 text-black px-4 py-2 rounded-lg hover:scale-105 transition-transform">
+                        Get Started
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-orange-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex pt-20">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-20 w-80 h-full sidebar-nav overflow-y-auto hidden lg:block">
+            <div class="p-6">
+                <h3 class="text-lg font-semibold text-orange-400 mb-6 animate-fade-in">Documentation</h3>
+                
+                <!-- Getting Started -->
+                <div class="mb-8 scroll-animate">
+                    <h4 class="text-sm font-medium text-gray-300 uppercase tracking-wider mb-3">Getting Started</h4>
+                    <div class="space-y-2">
+                        <a href="#introduction" class="nav-item active block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Introduction
+                        </a>
+                        <a href="#quick-start" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Quick Start
+                        </a>
+                        <a href="#installation" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Installation
+                        </a>
+                        <a href="#authentication" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Authentication
+                        </a>
+                    </div>
+                </div>
+
+                <!-- API Reference -->
+                <div class="mb-8 scroll-animate">
+                    <h4 class="text-sm font-medium text-gray-300 uppercase tracking-wider mb-3">API Reference</h4>
+                    <div class="space-y-2">
+                        <a href="#send-email" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Send Email
+                        </a>
+                        <a href="#templates" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Templates
+                        </a>
+                        <a href="#webhooks" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Webhooks
+                        </a>
+                        <a href="#analytics" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Analytics
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SDKs -->
+                <div class="mb-8 scroll-animate">
+                    <h4 class="text-sm font-medium text-gray-300 uppercase tracking-wider mb-3">SDKs</h4>
+                    <div class="space-y-2">
+                        <a href="#javascript" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            JavaScript
+                        </a>
+                        <a href="#python" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Python
+                        </a>
+                        <a href="#nodejs" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Node.js
+                        </a>
+                        <a href="#php" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            PHP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Examples -->
+                <div class="mb-8 scroll-animate">
+                    <h4 class="text-sm font-medium text-gray-300 uppercase tracking-wider mb-3">Examples</h4>
+                    <div class="space-y-2">
+                        <a href="#basic-usage" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Basic Usage
+                        </a>
+                        <a href="#advanced" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Advanced
+                        </a>
+                        <a href="#integrations" class="nav-item block py-2 px-3 rounded text-sm text-gray-300 hover:text-white">
+                            Integrations
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Documentation Content -->
+        <main class="lg:ml-80 flex-1 px-6 lg:px-12 py-8">
+            <!-- Hero Section -->
+            <section class="mb-16 scroll-animate">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-6xl font-bold mb-6 gradient-text animate-fade-in">
+                        Documentation
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 animate-slide-up">
+                        Everything you need to integrate FAFCODE's powerful email solutions into your applications
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                        <button class="bg-gradient-to-r from-orange-500 to-orange-400 text-black px-8 py-3 rounded-lg font-medium hover:scale-105 transition-transform hover-lift">
+                            Quick Start Guide
+                        </button>
+                        <button class="border border-orange-500 text-orange-400 px-8 py-3 rounded-lg font-medium hover:bg-orange-500/10 transition-colors hover-lift">
+                            API Reference
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Introduction -->
+            <section id="introduction" class="mb-16 scroll-animate">
+                <div class="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-xl p-8 border border-orange-500/20 hover-lift">
+                    <h2 class="text-4xl font-bold mb-6 gradient-text animate-slide-left">
+                        Introduction
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        FAFCODE provides a powerful, developer-friendly email API that makes sending transactional emails simple and reliable. 
+                        Our platform is designed to scale with your application, from startup to enterprise.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div class="bg-black/30 rounded-lg p-6 border border-orange-500/10 hover-lift animate-bounce-in">
+                            <div class="text-orange-400 text-2xl mb-3">⚡</div>
+                            <h3 class="text-lg font-semibold mb-2">Fast Integration</h3>
+                            <p class="text-gray-400 text-sm">Get started in minutes with our simple REST API</p>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-6 border border-orange-500/10 hover-lift animate-bounce-in" style="animation-delay: 0.2s;">
+                            <div class="text-orange-400 text-2xl mb-3">🔒</div>
+                            <h3 class="text-lg font-semibold mb-2">Secure & Reliable</h3>
+                            <p class="text-gray-400 text-sm">Enterprise-grade security with 99.9% uptime</p>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-6 border border-orange-500/10 hover-lift animate-bounce-in" style="animation-delay: 0.4s;">
+                            <div class="text-orange-400 text-2xl mb-3">📊</div>
+                            <h3 class="text-lg font-semibold mb-2">Advanced Analytics</h3>
+                            <p class="text-gray-400 text-sm">Real-time tracking and detailed insights</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section id="quick-start" class="mb-16 scroll-animate">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">Quick Start</h2>
+                
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="api-endpoint rounded-xl p-6 hover-lift">
+                        <h3 class="text-2xl font-semibold mb-4 text-orange-400 animate-slide-right">
+                            1. Get Your API Key
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            Sign up for a free account and get your API key from the dashboard.
+                        </p>
+                        <div class="code-block rounded-lg p-4 font-mono text-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-orange-400">Terminal</span>
+                                <button class="text-gray-400 hover:text-white transition-colors">Copy</button>
+                            </div>
+                            <pre class="text-green-400"><code>curl -X GET https://api.fafcode.com/auth/key \
+  -H "Authorization: Bearer YOUR_TOKEN"</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="api-endpoint rounded-xl p-6 hover-lift">
+                        <h3 class="text-2xl font-semibold mb-4 text-orange-400 animate-slide-right">
+                            2. Send Your First Email
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            Use our simple API to send your first email in seconds.
+                        </p>
+                        <div class="code-block rounded-lg p-4 font-mono text-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-orange-400">JavaScript</span>
+                                <button class="text-gray-400 hover:text-white transition-colors">Copy</button>
+                            </div>
+                            <pre class="text-blue-400"><code>const fafcode = new FafcodeClient('YOUR_API_KEY');
+
+const result = await fafcode.emails.send({
+  to: 'user@example.com',
+  from: 'noreply@yourapp.com',
+  subject: 'Welcome to our app!',
+  html: '&lt;h1&gt;Welcome!&lt;/h1&gt;&lt;p&gt;Thanks for signing up.&lt;/p&gt;'
+});
+
+console.log('Email sent:', result.id);</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="api-endpoint rounded-xl p-6 hover-lift">
+                        <h3 class="text-2xl font-semibold mb-4 text-orange-400 animate-slide-right">
+                            3. Track Your Email
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            Monitor delivery status and engagement metrics in real-time.
+                        </p>
+                        <div class="code-block rounded-lg p-4 font-mono text-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-orange-400">Response</span>
+                                <button class="text-gray-400 hover:text-white transition-colors">Copy</button>
+                            </div>
+                            <pre class="text-yellow-400"><code>{
+  "id": "email_1234567890",
+  "status": "delivered",
+  "created_at": "2024-01-15T10:30:00Z",
+  "delivered_at": "2024-01-15T10:30:05Z",
+  "tracking": {
+    "opened": true,
+    "clicked": false,
+    "bounced": false
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Endpoints -->
+            <section id="send-email" class="mb-16 scroll-animate">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">API Endpoints</h2>
+                
+                <!-- Send Email Endpoint -->
+                <div class="bg-gradient-to-r from-gray-900/50 to-black/50 rounded-xl p-8 border border-orange-500/20 mb-8 hover-lift">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="bg-green-500 text-black px-3 py-1 rounded-full text-sm font-bold">POST</span>
+                        <code class="text-orange-400 text-lg font-mono">/v1/emails/send</code>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Send Email</h3>
+                    <p class="text-gray-300 mb-6">Send a single email to one or more recipients.</p>
+                    
+                    <!-- Parameters -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4 text-orange-400">Parameters</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <code class="text-blue-400">to</code>
+                                    <span class="bg-red-500 text-white px-2 py-0.5 rounded text-xs">required</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Email address or array of email addresses</p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <code class="text-blue-400">from</code>
+                                    <span class="bg-red-500 text-white px-2 py-0.5 rounded text-xs">required</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Sender email address</p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <code class="text-blue-400">subject</code>
+                                    <span class="bg-red-500 text-white px-2 py-0.5 rounded text-xs">required</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Email subject line</p>
+                            </div>
+                            <div class="border-l-4 border-gray-500 pl-4">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <code class="text-blue-400">html</code>
+                                    <span class="bg-gray-500 text-white px-2 py-0.5 rounded text-xs">optional</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">HTML content of the email</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Example Request -->
+                    <div class="code-block rounded-lg p-4 font-mono text-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-orange-400">Example Request</span>
+                            <button class="text-gray-400 hover:text-white transition-colors">Copy</button>
+                        </div>
+                        <pre class="text-gray-300"><code>curl -X POST https://api.fafcode.com/v1/emails/send \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "to": ["user@example.com"],
+    "from": "noreply@yourapp.com",
+    "subject": "Welcome to FAFCODE",
+    "html": "&lt;h1&gt;Welcome!&lt;/h1&gt;&lt;p&gt;Thank you for joining us.&lt;/p&gt;"
+  }'</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SDKs Section -->
+            <section id="javascript" class="mb-16 scroll-animate">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">SDKs & Libraries</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- JavaScript SDK -->
+                    <div class="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-xl p-6 border border-orange-500/20 hover-lift">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center text-black font-bold">JS</div>
+                            <h3 class="text-xl font-semibold">JavaScript SDK</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Official JavaScript SDK for browser and Node.js environments.</p>
+                        <div class="code-block rounded-lg p-3 font-mono text-sm mb-4">
+                            <pre class="text-green-400"><code>npm install @fafcode/sdk</code></pre>
+                        </div>
+                        <a href="#" class="text-orange-400 hover:text-orange-300 font-medium">View Documentation →</a>
+                    </div>
+
+                    <!-- Python SDK -->
+                    <div class="bg-gradient-to-br from-blue-500/10 to-green-500/10 rounded-xl p-6 border border-orange-500/20 hover-lift">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">PY</div>
+                            <h3 class="text-xl font-semibold">Python SDK</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Official Python library with async support.</p>
+                        <div class="code-block rounded-lg p-3 font-mono text-sm mb-4">
+                            <pre class="text-green-400"><code>pip install fafcode</code></pre>
+                        </div>
+                        <a href="#" class="text-orange-400 hover:text-orange-300 font-medium">View Documentation →</a>
+                    </div>
+
+                    <!-- Node.js SDK -->
+                    <div class="bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-xl p-6 border border-orange-500/20 hover-lift">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center text-black font-bold">Node</div>
+                            <h3 class="text-xl font-semibold">Node.js SDK</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Server-side JavaScript SDK with TypeScript support.</p>
+                        <div class="code-block rounded-lg p-3 font-mono text-sm mb-4">
+                            <pre class="text-green-400"><code>npm install @fafcode/node</code></pre>
+                        </div>
+                        <a href="#" class="text-orange-400 hover:text-orange-300 font-medium">View Documentation →</a>
+                    </div>
+
+                    <!-- PHP SDK -->
+                    <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl p-6 border border-orange-500/20 hover-lift">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold">PHP</div>
+                            <h3 class="text-xl font-semibold">PHP SDK</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Modern PHP library with Composer support.</p>
+                        <div class="code-block rounded-lg p-3 font-mono text-sm mb-4">
+                            <pre class="text-green-400"><code>composer require fafcode/sdk</code></pre>
+                        </div>
+                        <a href="#" class="text-orange-400 hover:text-orange-300 font-medium">View Documentation →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples Section -->
+            <section id="basic-usage" class="mb-16 scroll-animate">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">Code Examples</h2>
+                
+                <!-- Tabs for different examples -->
+                <div class="mb-6">
+                    <div class="flex flex-wrap gap-2 p-1 bg-gray-900 rounded-lg">
+                        <button class="px-4 py-2 bg-orange-500 text-black rounded-md font-medium transition-all example-tab active" data-example="welcome">
+                            Welcome Email
+                        </button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded-md font-medium transition-all example-tab" data-example="reset">
+                            Password Reset
+                        </button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded-md font-medium transition-all example-tab" data-example="newsletter">
+                            Newsletter
+                        </button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded-md font-medium transition-all example-tab" data-example="bulk">
+                            Bulk Emails
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Example Content -->
+                <div class="example-content" id="welcome-example">
+                    <div class="code-block rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-orange-400">Welcome Email Example</h3>
+                            <button class="text-gray-400 hover:text-white transition-colors">Copy Code</button>
+                        </div>
+                        <pre class="text-gray-300 font-mono text-sm overflow-x-auto"><code>import { FafcodeClient } from '@fafcode/sdk';
+
+const client = new FafcodeClient(process.env.FAFCODE_API_KEY);
+
+async function sendWelcomeEmail(userEmail, userName) {
+  try {
+    const result = await client.emails.send({
+      to: userEmail,
+      from: 'welcome@yourapp.com',
+      subject: `Welcome to Our Platform, ${userName}!`,
+      html: `
+        &lt;div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;"&gt;
+          &lt;h1 style="color: #e99b63;"&gt;Welcome, ${userName}!&lt;/h1&gt;
+          &lt;p&gt;Thanks for joining our platform. We're excited to have you on board!&lt;/p&gt;
+          &lt;a href="https://yourapp.com/dashboard" 
+             style="background: #e99b63; color: white; padding: 12px 24px; 
+                    text-decoration: none; border-radius: 6px; display: inline-block;"&gt;
+            Get Started
+          &lt;/a&gt;
+        &lt;/div&gt;
+      `,
+      tags: ['welcome', 'onboarding'],
+      track_opens: true,
+      track_clicks: true
+    });
+    
+    console.log('Welcome email sent:', result.id);
+    return result;
+  } catch (error) {
+    console.error('Failed to send welcome email:', error);
+    throw error;
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section class="mb-16 scroll-animate">
+                <div class="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-xl p-8 border border-orange-500/20 text-center hover-lift">
+                    <h2 class="text-3xl font-bold mb-4 gradient-text">Need Help?</h2>
+                    <p class="text-gray-300 text-lg mb-8">Our team is here to help you succeed with FAFCODE.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-black/30 rounded-lg hover-lift">
+                            <div class="text-3xl mb-4">📚</div>
+                            <h3 class="font-semibold mb-2">Documentation</h3>
+                            <p class="text-gray-400 text-sm mb-4">Comprehensive guides and API reference</p>
+                            <a href="#" class="text-orange-400 hover:text-orange-300">Browse Docs →</a>
+                        </div>
+                        
+                        <div class="p-6 bg-black/30 rounded-lg hover-lift">
+                            <div class="text-3xl mb-4">💬</div>
+                            <h3 class="font-semibold mb-2">Community</h3>
+                            <p class="text-gray-400 text-sm mb-4">Join our developer community</p>
+                            <a href="#" class="text-orange-400 hover:text-orange-300">Join Discord →</a>
+                        </div>
+                        
+                        <div class="p-6 bg-black/30 rounded-lg hover-lift">
+                            <div class="text-3xl mb-4">🚀</div>
+                            <h3 class="font-semibold mb-2">Support</h3>
+                            <p class="text-gray-400 text-sm mb-4">Get help from our expert team</p>
+                            <a href="#" class="text-orange-400 hover:text-orange-300">Contact Support →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-orange-500/20 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-light mb-4 gradient-text">FAFCODE</h3>
+                    <p class="text-gray-400 mb-4">Modern email solutions for developers and teams.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-orange-400">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-orange-400">Developers</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SDKs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Examples</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-orange-400">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 FAFCODE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            scrollElements.forEach(el => observer.observe(el));
+
+            // Tab functionality for examples
+            const exampleTabs = document.querySelectorAll('.example-tab');
+            const exampleContents = document.querySelectorAll('.example-content');
+
+            exampleTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetExample = tab.dataset.example;
+                    
+                    // Update active tab
+                    exampleTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-orange-500', 'text-black');
+                        t.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-gray-700');
+                    });
+                    
+                    tab.classList.add('active', 'bg-orange-500', 'text-black');
+                    tab.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-gray-700');
+                    
+                    // Show corresponding content (simplified for demo)
+                    console.log('Showing example:', targetExample);
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // Update active nav item
+                            document.querySelectorAll('.nav-item').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Add dynamic particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = particle.style.height = (Math.random() * 3 + 1) + 'px';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.querySelector('.particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+    </script>
+</body>
+</html>
