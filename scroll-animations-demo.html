@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Scroll Animations with Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'zoom-in': 'zoomIn 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'rotate-in': 'rotateIn 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.5)', opacity: '0' },
+                            '50%': { transform: 'scale(1.1)', opacity: '0.8' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        rotateIn: {
+                            '0%': { transform: 'rotate(-180deg) scale(0.5)', opacity: '0' },
+                            '100%': { transform: 'rotate(0deg) scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Initial hidden state for scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Parallax effect */
+        .parallax {
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Hover effects */
+        .image-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .image-hover:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 to-blue-900">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4 animate-fade-in">Image Scroll Animations</h1>
+            <p class="text-xl mb-8 animate-slide-up">Scroll down to see amazing effects!</p>
+            <div class="animate-bounce">
+                <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fade In Animation -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Fade In Animation</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/400/300?random=1" 
+                     alt="Fade in example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="fade-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide Up Animation -->
+    <section class="py-20 px-4 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Slide Up Animation</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/400/300?random=2" 
+                     alt="Slide up example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="slide-up">
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide From Sides -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Slide From Sides</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <img src="https://picsum.photos/400/300?random=3" 
+                     alt="Slide left example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="slide-left">
+                <img src="https://picsum.photos/400/300?random=4" 
+                     alt="Slide right example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="slide-right">
+            </div>
+        </div>
+    </section>
+
+    <!-- Zoom In Animation -->
+    <section class="py-20 px-4 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Zoom In Animation</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/400/300?random=5" 
+                     alt="Zoom in example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="zoom-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bounce In Animation -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Bounce In Animation</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/400/300?random=6" 
+                     alt="Bounce in example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="bounce-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rotate In Animation -->
+    <section class="py-20 px-4 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Rotate In Animation</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/400/300?random=7" 
+                     alt="Rotate in example" 
+                     class="scroll-animate rounded-lg shadow-2xl"
+                     data-animation="rotate-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- Hover Effects -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Hover Effects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <img src="https://picsum.photos/300/200?random=8" 
+                     alt="Hover effect 1" 
+                     class="image-hover rounded-lg shadow-lg cursor-pointer">
+                <img src="https://picsum.photos/300/200?random=9" 
+                     alt="Hover effect 2" 
+                     class="image-hover rounded-lg shadow-lg cursor-pointer">
+                <img src="https://picsum.photos/300/200?random=10" 
+                     alt="Hover effect 3" 
+                     class="image-hover rounded-lg shadow-lg cursor-pointer">
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="py-20 px-4 bg-gray-800 overflow-hidden">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Parallax Effect</h2>
+            <div class="flex justify-center">
+                <img src="https://picsum.photos/600/400?random=11" 
+                     alt="Parallax example" 
+                     class="parallax rounded-lg shadow-2xl"
+                     id="parallax-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Multiple Images Grid with Staggered Animation -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Staggered Grid Animation</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://picsum.photos/200/200?random=12" 
+                     alt="Grid 1" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="fade-in"
+                     data-delay="0">
+                <img src="https://picsum.photos/200/200?random=13" 
+                     alt="Grid 2" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="fade-in"
+                     data-delay="100">
+                <img src="https://picsum.photos/200/200?random=14" 
+                     alt="Grid 3" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="fade-in"
+                     data-delay="200">
+                <img src="https://picsum.photos/200/200?random=15" 
+                     alt="Grid 4" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="fade-in"
+                     data-delay="300">
+                <img src="https://picsum.photos/200/200?random=16" 
+                     alt="Grid 5" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="slide-up"
+                     data-delay="0">
+                <img src="https://picsum.photos/200/200?random=17" 
+                     alt="Grid 6" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="slide-up"
+                     data-delay="100">
+                <img src="https://picsum.photos/200/200?random=18" 
+                     alt="Grid 7" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="slide-up"
+                     data-delay="200">
+                <img src="https://picsum.photos/200/200?random=19" 
+                     alt="Grid 8" 
+                     class="scroll-animate rounded-lg shadow-lg"
+                     data-animation="slide-up"
+                     data-delay="300">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const animation = element.dataset.animation;
+                    const delay = element.dataset.delay || 0;
+                    
+                    setTimeout(() => {
+                        // Add the appropriate animation class
+                        switch(animation) {
+                            case 'fade-in':
+                                element.classList.add('animate-fade-in');
+                                break;
+                            case 'slide-up':
+                                element.classList.add('animate-slide-up');
+                                break;
+                            case 'slide-left':
+                                element.classList.add('animate-slide-in-left');
+                                break;
+                            case 'slide-right':
+                                element.classList.add('animate-slide-in-right');
+                                break;
+                            case 'zoom-in':
+                                element.classList.add('animate-zoom-in');
+                                break;
+                            case 'bounce-in':
+                                element.classList.add('animate-bounce-in');
+                                break;
+                            case 'rotate-in':
+                                element.classList.add('animate-rotate-in');
+                                break;
+                        }
+                        
+                        // Also add the general animate-in class
+                        element.classList.add('animate-in');
+                    }, parseInt(delay));
+                    
+                    // Stop observing once animated
+                    observer.unobserve(element);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-animate elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            scrollElements.forEach(el => observer.observe(el));
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const parallaxImage = document.getElementById('parallax-image');
+            if (parallaxImage) {
+                const scrolled = window.pageYOffset;
+                const parallaxSpeed = 0.3;
+                parallaxImage.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }
+        });
+
+        // Enhanced hover effects with mouse tracking
+        document.querySelectorAll('.image-hover').forEach(img => {
+            img.addEventListener('mouseenter', (e) => {
+                e.target.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            img.addEventListener('mouseleave', (e) => {
+                e.target.style.transform = 'scale(1) rotate(0deg)';
+            });
+            
+            img.addEventListener('mousemove', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                e.target.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>

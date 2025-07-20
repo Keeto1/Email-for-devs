@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Scroll Animations - Integration Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="scroll-animations.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-lg p-6">
+        <h1 class="text-3xl font-bold text-gray-800 text-center">My Website with Scroll Animations</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center">
+        <h2 class="text-4xl font-bold mb-4">Welcome to Our Gallery</h2>
+        <p class="text-xl">Scroll down to see our images come to life!</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <!-- Simple fade-in image -->
+            <div class="mb-16 text-center">
+                <h3 class="text-2xl font-bold mb-8 text-gray-800">Fade In Animation</h3>
+                <img src="https://picsum.photos/500/300?random=1" 
+                     alt="Beautiful landscape" 
+                     class="scroll-animate mx-auto rounded-lg shadow-lg"
+                     data-animation="fade-in">
+            </div>
+
+            <!-- Slide up image -->
+            <div class="mb-16 text-center">
+                <h3 class="text-2xl font-bold mb-8 text-gray-800">Slide Up Animation</h3>
+                <img src="https://picsum.photos/500/300?random=2" 
+                     alt="Mountain view" 
+                     class="scroll-animate mx-auto rounded-lg shadow-lg"
+                     data-animation="slide-up">
+            </div>
+
+            <!-- Side by side images with different animations -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-center text-gray-800">Slide from Sides</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <img src="https://picsum.photos/400/250?random=3" 
+                         alt="City skyline" 
+                         class="scroll-animate rounded-lg shadow-lg"
+                         data-animation="slide-left"
+                         data-delay="0">
+                    <img src="https://picsum.photos/400/250?random=4" 
+                         alt="Ocean view" 
+                         class="scroll-animate rounded-lg shadow-lg"
+                         data-animation="slide-right"
+                         data-delay="200">
+                </div>
+            </div>
+
+            <!-- Zoom in animation -->
+            <div class="mb-16 text-center">
+                <h3 class="text-2xl font-bold mb-8 text-gray-800">Zoom In Animation</h3>
+                <img src="https://picsum.photos/500/300?random=5" 
+                     alt="Forest path" 
+                     class="scroll-animate mx-auto rounded-lg shadow-lg"
+                     data-animation="zoom-in">
+            </div>
+
+            <!-- Image grid with staggered animations -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-center text-gray-800">Staggered Grid</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <img src="https://picsum.photos/200/150?random=6" 
+                         alt="Gallery 1" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="fade-in"
+                         data-delay="0">
+                    <img src="https://picsum.photos/200/150?random=7" 
+                         alt="Gallery 2" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="fade-in"
+                         data-delay="100">
+                    <img src="https://picsum.photos/200/150?random=8" 
+                         alt="Gallery 3" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="fade-in"
+                         data-delay="200">
+                    <img src="https://picsum.photos/200/150?random=9" 
+                         alt="Gallery 4" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="fade-in"
+                         data-delay="300">
+                    <img src="https://picsum.photos/200/150?random=10" 
+                         alt="Gallery 5" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="slide-up"
+                         data-delay="0">
+                    <img src="https://picsum.photos/200/150?random=11" 
+                         alt="Gallery 6" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="slide-up"
+                         data-delay="100">
+                    <img src="https://picsum.photos/200/150?random=12" 
+                         alt="Gallery 7" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="slide-up"
+                         data-delay="200">
+                    <img src="https://picsum.photos/200/150?random=13" 
+                         alt="Gallery 8" 
+                         class="scroll-animate rounded-lg shadow-md image-hover"
+                         data-animation="slide-up"
+                         data-delay="300">
+                </div>
+            </div>
+
+            <!-- Parallax section -->
+            <div class="mb-16 text-center bg-gray-800 text-white py-20 rounded-lg overflow-hidden">
+                <h3 class="text-2xl font-bold mb-8">Parallax Effect</h3>
+                <img src="https://picsum.photos/600/400?random=14" 
+                     alt="Parallax background" 
+                     class="parallax mx-auto rounded-lg"
+                     data-speed="0.3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8">
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Include the animation script -->
+    <script src="image-scroll-animations.js"></script>
+</body>
+</html>

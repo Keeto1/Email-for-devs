@@ -1,0 +1,198 @@
+/* Scroll Animation Styles for Tailwind CSS */
+
+/* Base styles for elements that will be animated on scroll */
+.scroll-animate {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+/* Fade in animation */
+.scroll-animate[data-animation="fade-in"] {
+    opacity: 0;
+}
+
+/* Slide up animation */
+.scroll-animate[data-animation="slide-up"] {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Slide from left animation */
+.scroll-animate[data-animation="slide-left"] {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+/* Slide from right animation */
+.scroll-animate[data-animation="slide-right"] {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* Zoom in animation */
+.scroll-animate[data-animation="zoom-in"] {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Bounce in animation */
+.scroll-animate[data-animation="bounce-in"] {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Rotate in animation */
+.scroll-animate[data-animation="rotate-in"] {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+}
+
+/* Parallax elements */
+.parallax {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+/* Hover effects for images */
+.image-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.image-hover:hover {
+    transform: scale(1.05);
+}
+
+/* Advanced hover effects */
+.image-hover-3d {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.image-hover-3d:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Stagger delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Animation speed utilities */
+.animate-fast { animation-duration: 0.4s; }
+.animate-normal { animation-duration: 0.8s; }
+.animate-slow { animation-duration: 1.2s; }
+
+/* Scroll reveal animations for different directions */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-200deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* Apply animations */
+.animate-slide-in-up { animation: slideInUp 0.8s ease-out; }
+.animate-slide-in-left { animation: slideInLeft 0.8s ease-out; }
+.animate-slide-in-right { animation: slideInRight 0.8s ease-out; }
+.animate-fade-in-scale { animation: fadeInScale 0.8s ease-out; }
+.animate-bounce-in { animation: bounceIn 1s ease-out; }
+.animate-rotate-in { animation: rotateIn 1s ease-out; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-animate {
+        transition-duration: 0.6s;
+    }
+    
+    .scroll-animate[data-animation="slide-up"] {
+        transform: translateY(30px);
+    }
+    
+    .scroll-animate[data-animation="slide-left"],
+    .scroll-animate[data-animation="slide-right"] {
+        transform: translateX(0);
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate,
+    .parallax,
+    .image-hover,
+    .image-hover-3d {
+        transition: none;
+        animation: none;
+        transform: none;
+    }
+}
