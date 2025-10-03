@@ -3,266 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAFCODE | Features</title>
-    <meta name="description" content="Discover the powerful features of FAFCODE's developer email solutions">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Features - FAFCODE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#e99b63',
-                        secondary: '#f5d5b8',
-                        dark: '#0a0a0a',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(235, 157, 100, 0.1), 0 10px 10px -5px rgba(233, 155, 99, 0.04);
-        }
-        .gradient-text {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-    </style>
 </head>
-<body class="bg-dark text-white font-sans antialiased">
+<body class="bg-black text-white font-inter">
     <!-- Navigation -->
-    <header class="fixed w-full bg-dark/90 backdrop-blur-md z-50 border-b border-gray-800">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="/" class="text-3xl font-light">FAFCODE</a>
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-bold text-orange-300">FAFCODE</a>
                 
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="/company.html" class="hover:text-primary transition-colors">Company</a>
-                    <a href="/features.html" class="text-primary font-medium">Features</a>
-                    <a href="/resources.html" class="hover:text-primary transition-colors">Resources</a>
-                    <a href="/docs.html" class="hover:text-primary transition-colors">Docs</a>
-                    <a href="/signin.html" class="bg-gray-200 text-dark px-6 py-2 rounded-full font-medium hover:bg-white transition-colors">Sign In</a>
-                </nav>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+                    <a href="features.html" class="text-orange-300">Features</a>
+                    <a href="docs.html" class="hover:text-orange-300 transition-colors">Docs</a>
+                    <a href="resources.html" class="hover:text-orange-300 transition-colors">Resources</a>
+                    <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+                    <a href="../silo/signin.html" class="text-black font-semibold bg-orange-300 hover:bg-orange-400 px-4 py-2 rounded-lg transition-colors hover:scale-105 duration-500">Sign In</a>
+                </div>
 
-                <button id="mobileMenuButton" class="md:hidden text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                    <svg id="menuIcon" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-dark/95 backdrop-blur-lg z-40 pt-24 px-6 hidden">
-        <nav class="flex flex-col space-y-6 text-center">
-            <a href="/company.html" class="text-2xl hover:text-primary transition-colors">Company</a>
-            <a href="/features.html" class="text-2xl text-primary font-medium">Features</a>
-            <a href="/resources.html" class="text-2xl hover:text-primary transition-colors">Resources</a>
-            <a href="/docs.html" class="text-2xl hover:text-primary transition-colors">Docs</a>
-            <a href="/signin.html" class="mt-8 bg-gray-200 text-dark px-8 py-3 rounded-full font-medium text-lg hover:bg-white transition-colors">Sign In</a>
-        </nav>
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-md hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+            <a href="features.html" class="text-orange-300">Features</a>
+            <a href="docs.html" class="hover:text-orange-300 transition-colors">Docs</a>
+            <a href="resources.html" class="hover:text-orange-300 transition-colors">Resources</a>
+            <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+            <a href="../silo/signin.html" class="bg-orange-300 hover:bg-orange-600 px-6 py-3 rounded-lg transition-colors">Sign In</a>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6">
-        <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center animate-fade-in">
-                <span class="inline-block bg-gradient-to-r from-gray-500 to-primary rounded-full px-4 py-1 text-sm font-medium mb-4">
-                    DEVELOPER-FIRST FEATURES
-                </span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                    Built for <span class="gradient-text bg-gradient-to-r from-primary to-secondary">Developers</span>, 
-                    <br>Loved by <span class="gradient-text bg-gradient-to-r from-secondary to-primary">Teams</span>
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-animate">
+                    Powerful <span class="text-orange-300">Features</span>
                 </h1>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Powerful email infrastructure with the tools and APIs developers need to build, scale, and deliver exceptional email experiences.
+                <p class="text-xl text-gray-300 mb-8 hero-animate">
+                    Explore the comprehensive toolkit designed for modern web development
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="py-20 px-6">
-        <div class="container mx-auto">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Developer-Friendly APIs</h3>
-                    <p class="text-gray-300">
-                        RESTful APIs with clear documentation, SDKs for popular languages, and webhooks for real-time event notifications.
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Cloud-Native Infrastructure</h3>
-                    <p class="text-gray-300">
-                        Built on scalable cloud architecture with 99.99% uptime SLA and global edge network for fast delivery.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Template Engine</h3>
-                    <p class="text-gray-300">
-                        Dynamic templating with Handlebars, MJML support, and version control for your email designs.
-                    </p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up" style="animation-delay: 0.3s;">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Advanced Security</h3>
-                    <p class="text-gray-300">
-                        Enterprise-grade security with TLS encryption, SPF/DKIM/DMARC, and SOC 2 Type II compliance.
-                    </p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up" style="animation-delay: 0.4s;">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Analytics Dashboard</h3>
-                    <p class="text-gray-300">
-                        Real-time analytics with open rates, click tracking, and custom event tracking via API.
-                    </p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition-all duration-300 animate-slide-up" style="animation-delay: 0.5s;">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Developer Tools</h3>
-                    <p class="text-gray-300">
-                        CLI tools, test environments, email previews, and webhooks for seamless development workflows.
-                    </p>
+                <div class="inline-flex items-center space-x-2 text-orange-300 hero-animate">
+                    <span class="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></span>
+                    <span>Currently in development - Student project showcase</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-gradient-to-br from-dark to-gray-900">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Email Workflow?</h2>
-            <p class="text-xl text-gray-300 mb-8">
-                Join thousands of developers who trust FAFCODE for their critical email infrastructure.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/signup.html" class="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full transition-colors">
-                    Get Started for Free
-                </a>
-                <a href="/docs.html" class="border border-gray-600 hover:border-primary text-white font-medium px-8 py-3 rounded-full transition-colors">
-                    Read Documentation
-                </a>
+        <!-- Feature Categories -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-5xl">
+                <div class="flex flex-wrap justify-center mb-12 space-x-4  ">
+                    <button class="tab-button active px-6 py-3 rounded-lg bg-orange-300 hover:bg-orange-400 text-black  hover:transform transition duration-500 hover:scale-105 font-semibold hover:shadow-2xl hover:shadow-orange-500" data-tab="api">
+                        API Design
+                    </button>
+                    <button class="tab-button px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium  hover:transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white" data-tab="templates">
+                        Templates
+                    </button>
+                    <button class="tab-button px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium  hover:transform transition duration-500 hover:scale-105 shadow-2xl hover:shadow-white" data-tab="testing">
+                        Testing
+                    </button>
+                    <button class="tab-button px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium  hover:transform transition duration-500 hover:scale-105 shadow-2xl hover:shadow-white  " data-tab="analytics">
+                        Analytics
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- API Design Tab -->
+                    <div id="api" class="tab-panel active">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">RESTful API Architecture</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Intuitive Endpoints</h4>
+                                            <p class="text-gray-400">Clean, semantic URL structure following REST principles</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">JSON Response Format</h4>
+                                            <p class="text-gray-400">Consistent data structures for all API responses</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Authentication & Security</h4>
+                                            <p class="text-gray-400">JWT-based authentication with role-based access control</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <h4 class="text-sm font-medium text-gray-400 mb-4">Example API Endpoint</h4>
+                                <pre class="text-sm text-green-400 overflow-x-auto"><code>GET /api/v1/projects/{id}
+
+Response:
+{
+  "status": "success",
+  "data": {
+    "id": "proj_123",
+    "name": "Student Portfolio",
+    "description": "Learning project",
+    "created_at": "2024-01-15T10:00:00Z",
+    "technologies": ["HTML", "CSS", "JS"],
+    "status": "in_development"
+  },
+  "meta": {
+    "version": "1.0",
+    "timestamp": "2024-01-15T10:00:00Z"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Templates Tab -->
+                    <div id="templates" class="tab-panel hidden">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Template Engine</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Component-Based</h4>
+                                            <p class="text-gray-400">Reusable components for faster development</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Modern Syntax</h4>
+                                            <p class="text-gray-400">ES6+ features and modern JavaScript patterns</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Hot Reload</h4>
+                                            <p class="text-gray-400">Instant updates during development</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <h4 class="text-sm font-medium text-gray-400 mb-4">Template Example</h4>
+                                <pre class="text-sm text-blue-400 overflow-x-auto"><code>&lt;template&gt;
+  &lt;div class="project-card"&gt;
+    &lt;h3&gt;{{ project.name }}&lt;/h3&gt;
+    &lt;p&gt;{{ project.description }}&lt;/p&gt;
+    &lt;div class="tags"&gt;
+      &lt;span v-for="tag in project.tags"
+            :key="tag"
+            class="tag"&gt;
+        {{ tag }}
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing Tab -->
+                    <div id="testing" class="tab-panel hidden">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Testing Suite</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Unit Testing</h4>
+                                            <p class="text-gray-400">Comprehensive function and component testing</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Integration Testing</h4>
+                                            <p class="text-gray-400">End-to-end workflow validation</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Coverage Reports</h4>
+                                            <p class="text-gray-400">Detailed test coverage analysis</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <h4 class="text-sm font-medium text-gray-400 mb-4">Test Example</h4>
+                                <pre class="text-sm text-yellow-400 overflow-x-auto"><script>describe('Project API', () => {
+  test('should create new project', async () => {
+    const projectData = {
+      name: 'Test Project',
+      description: 'Learning project'
+    };
+    
+    const response = await createProject(projectData);
+    
+    expect(response.status).toBe('success');
+    expect(response.data.name).toBe(projectData.name);
+    expect(response.data.id).toBeDefined();
+  });
+});</script></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div id="analytics" class="tab-panel hidden">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Analytics Dashboard</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Real-time Metrics</h4>
+                                            <p class="text-gray-400">Live project performance monitoring</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Learning Progress</h4>
+                                            <p class="text-gray-400">Track development skills and milestones</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-lg">Code Quality</h4>
+                                            <p class="text-gray-400">Automated code review and suggestions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <h4 class="text-sm font-medium text-gray-400 mb-4">Analytics Data</h4>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-300">Projects Created</span>
+                                        <span class="text-orange-300 font-bold">3</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-300">Code Quality Score</span>
+                                        <span class="text-green-400 font-bold">85%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-300">Learning Hours</span>
+                                        <span class="text-blue-400 font-bold">127h</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-300">Skills Acquired</span>
+                                        <span class="text-purple-400 font-bold">8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Technical Architecture -->
+        <section class="py-16 px-6 bg-gray-800/50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Technical Architecture</h2>
+                    <p class="text-gray-400 text-lg">Built with modern web technologies and best practices</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-300 rounded-full flex items-center justify-center mx-auto mb-4 hover:transform transition duration-300 hover:scale-105">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                        <p class="text-gray-400">HTML5, CSS3, JavaScript ES6+, Tailwind CSS</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-300 rounded-full flex items-center justify-center mx-auto mb-4 hover:transform transition duration-300 hover:scale-105">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Development</h3>
+                        <p class="text-gray-400">Learning-focused approach, Git version control</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-300 rounded-full flex items-center justify-center mx-auto mb-4 hover:transform transition duration-300 hover:scale-105">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Quality</h3>
+                        <p class="text-gray-400">Code reviews, testing, performance optimization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Explore?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Dive into the documentation or check out the resources to learn more
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="docs.html" class="bg-orange-400 hover:bg-orange-500 px-8 py-4 rounded-lg font-semibold  hover:transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-400">
+                        View Documentation
+                    </a>
+                    <a href="resources.html" class="bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-lg font-semibold  hover:transform transition duration-500 hover:scale-105 shadow-2xl hover:shadow-white">
+                        Learning Resources
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900/50 border-t border-gray-800 py-12 px-6">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-2xl font-light mb-4">FAFCODE</h3>
-                    <p class="text-gray-400">
-                        Email infrastructure built for developers and modern teams.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">Product</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/features.html" class="text-gray-400 hover:text-primary transition-colors">Features</a></li>
-                        <li><a href="/pricing.html" class="text-gray-400 hover:text-primary transition-colors">Pricing</a></li>
-                        <li><a href="/integrations.html" class="text-gray-400 hover:text-primary transition-colors">Integrations</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/docs.html" class="text-gray-400 hover:text-primary transition-colors">Documentation</a></li>
-                        <li><a href="/blog.html" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/support.html" class="text-gray-400 hover:text-primary transition-colors">Support</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/about.html" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
-                        <li><a href="/careers.html" class="text-gray-400 hover:text-primary transition-colors">Careers</a></li>
-                        <li><a href="/contact.html" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500">© 2023 FAFCODE. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path></svg>
-                    </a>
-                
-                </div>
+    <footer class="bg-gray-800 py-12 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="text-2xl font-bold text-orange-300 mb-4">FAFCODE</div>
+            <p class="text-gray-400 mb-6">Student project - Learning web development</p>
+            <div class="text-sm text-gray-500">
+                © 2025 FAFCODE. Educational project for learning purposes.
             </div>
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <!-- Scripts -->
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and panels
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-orange-300', 'text-white');
+                        btn.classList.add('bg-gray-800', 'text-gray-300');
+                    });
+                    tabPanels.forEach(panel => {
+                        panel.classList.add('hidden');
+                        panel.classList.remove('active');
+                    });
+
+                    // Add active class to clicked button and corresponding panel
+                    button.classList.add('active', 'bg-orange-300', 'text-white');
+                    button.classList.remove('bg-gray-800', 'text-gray-300');
+                    document.getElementById(targetTab).classList.remove('hidden');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        });
+        
+    </script>
+    <script src="../index.js"></script>
 </body>
 </html>
