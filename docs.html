@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - FAFCODE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-bold text-orange-300">FAFCODE</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+                    <a href="features.html" class="hover:text-orange-300 transition-colors">Features</a>
+                    <a href="docs.html" class="text-orange-300">Docs</a>
+                    <a href="resources.html" class="hover:text-orange-300 transition-colors">Resources</a>
+                    <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+                    <a href="../silo/signin.html" class="text-black font-semibold bg-orange-300 hover:bg-orange-400 px-4 py-2 rounded-lg transition-colors hover:scale-105 duration-500">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                    <svg id="menuIcon" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-md hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+            <a href="features.html" class="hover:text-orange-300 transition-colors">Features</a>
+            <a href="docs.html" class="text-orange-300">Docs</a>
+            <a href="resources.html" class="hover:text-orange-300 transition-colors">Resources</a>
+            <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+            <a href="../silo/signin.html" class="bg-orange-300 hover:bg-orange-600 px-6 py-3 rounded-lg transition-colors">Sign In</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-animate">
+                    Developer <span class="text-orange-300">Documentation</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 hero-animate">
+                    Complete guide to using FAFCODE's developer-friendly email infrastructure
+                </p>
+                <div class="inline-flex items-center space-x-2 text-orange-300 hero-animate">
+                    <span class="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></span>
+                    <span>Student project - Learning documentation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="py-16 px-6 bg-gray-800/50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Quick Start</h2>
+                    <p class="text-gray-400 text-lg">Get up and running with FAFCODE in minutes</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v-2m6 2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">1. Installation</h3>
+                        <p class="text-gray-400 mb-4">Install the FAFCODE SDK for your preferred language</p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <code class="text-green-400 text-sm">npm install @fafcode/sdk</code>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">2. Configuration</h3>
+                        <p class="text-gray-400 mb-4">Set up your API key and configure the client</p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <code class="text-blue-400 text-sm">const client = new FafcodeClient({<br>&nbsp;&nbsp;apiKey: 'your-api-key'<br>});</code>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">3. Send Email</h3>
+                        <p class="text-gray-400 mb-4">Send your first email using the API</p>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <code class="text-yellow-400 text-sm">await client.send({<br>&nbsp;&nbsp;to: 'user@example.com',<br>&nbsp;&nbsp;subject: 'Hello!'<br>});</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference Section -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">API Reference</h2>
+                    <p class="text-gray-400 text-lg">Complete API documentation with examples</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Authentication -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-semibold mb-6 text-orange-300">Authentication</h3>
+                        <p class="text-gray-400 mb-4">All API requests require authentication using your API key.</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Header Authentication</h4>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <code class="text-green-400 text-sm">Authorization: Bearer your-api-key</code>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-2">Query Parameter</h4>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <code class="text-blue-400 text-sm">?api_key=your-api-key</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Send Email -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-semibold mb-6 text-orange-300">Send Email</h3>
+                        <p class="text-gray-400 mb-4">Send transactional emails using our REST API.</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Endpoint</h4>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <code class="text-green-400 text-sm">POST /api/v1/emails</code>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-2">Request Body</h4>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <pre class="text-blue-400 text-sm"><code>{
+  "to": "user@example.com",
+  "subject": "Welcome!",
+  "template": "welcome",
+  "data": {
+    "name": "John"
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Examples Section -->
+        <section class="py-16 px-6 bg-gray-800/50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Code Examples</h2>
+                    <p class="text-gray-400 text-lg">See FAFCODE in action with real code examples</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- JavaScript Example -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-orange-300">JavaScript/Node.js</h3>
+                        <div class="bg-gray-800 rounded-lg p-4 overflow-x-auto">
+                            <pre class="text-sm"><code class="text-blue-400">const FafcodeClient = require('@fafcode/sdk');
+
+const client = new FafcodeClient({
+  apiKey: process.env.FAFCODE_API_KEY
+});
+
+async function sendWelcomeEmail(user) {
+  try {
+    const response = await client.emails.send({
+      to: user.email,
+      subject: 'Welcome to our platform!',
+      template: 'welcome',
+      data: {
+        name: user.name,
+        loginUrl: 'https://app.example.com/login'
+      }
+    });
+    
+    console.log('Email sent:', response.id);
+  } catch (error) {
+    console.error('Failed to send email:', error);
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <!-- Python Example -->
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 text-orange-300">Python</h3>
+                        <div class="bg-gray-800 rounded-lg p-4 overflow-x-auto">
+                            <pre class="text-sm"><code class="text-green-400">from fafcode import FafcodeClient
+
+client = FafcodeClient(api_key="your-api-key")
+
+def send_welcome_email(user):
+    try:
+        response = client.emails.send(
+            to=user.email,
+            subject="Welcome to our platform!",
+            template="welcome",
+            data={
+                "name": user.name,
+                "login_url": "https://app.example.com/login"
+            }
+        )
+        print(f"Email sent: {response.id}")
+    except Exception as e:
+        print(f"Failed to send email: {e}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Email Templates</h2>
+                    <p class="text-gray-400 text-lg">Create and manage email templates with version control</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Template Editor</h3>
+                        <p class="text-gray-400 mb-4">Visual editor with live preview and syntax highlighting</p>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Drag & drop components</li>
+                            <li>• Real-time preview</li>
+                            <li>• Mobile responsive</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Version Control</h3>
+                        <p class="text-gray-400 mb-4">Git integration for template versioning and collaboration</p>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Git-based versioning</li>
+                            <li>• Branch management</li>
+                            <li>• Merge conflicts resolution</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-orange-300/30 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-300/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Testing & Validation</h3>
+                        <p class="text-gray-400 mb-4">Test templates across different email clients</p>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Multi-client testing</li>
+                            <li>• Spam score analysis</li>
+                            <li>• Accessibility checks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Join the developer community and start building with FAFCODE
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../silo/signin.html" class="bg-orange-400 hover:bg-orange-500 px-8 py-4 rounded-lg font-semibold hover:transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-400">
+                        Start Building
+                    </a>
+                    <a href="resources.html" class="bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-lg font-semibold hover:transform transition duration-500 hover:scale-105 shadow-2xl hover:shadow-white">
+                        View Resources
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="text-2xl font-bold text-orange-300 mb-4">FAFCODE</div>
+            <p class="text-gray-400 mb-6">Student project - Learning web development</p>
+            <div class="text-sm text-gray-500">
+                © 2025 FAFCODE. Educational project for learning purposes.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('rotate-90');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('rotate-90');
+                });
+            });
+        });
+    </script>
+    <script src="../index.js"></script>
+</body>
+</html>
