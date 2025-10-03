@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - FAFCODE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-bold text-orange-300">FAFCODE</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+                    <a href="features.html" class="hover:text-orange-300 transition-colors">Features</a>
+                    <a href="docs.html" class="hover:text-orange-300 transition-colors">Docs</a>
+                    <a href="resources.html" class="text-orange-300">Resources</a>
+                    <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+                    <a href="../silo/signin.html" class="bg-orange-400 hover:bg-orange-600 px-4 py-2 rounded-lg transition-colors">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                    <svg id="menuIcon" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-md hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="../index.html" class="hover:text-orange-300 transition-colors">Home</a>
+            <a href="features.html" class="hover:text-orange-300 transition-colors">Features</a>
+            <a href="docs.html" class="hover:text-orange-300 transition-colors">Docs</a>
+            <a href="resources.html" class="text-orange-300">Resources</a>
+            <a href="company.html" class="hover:text-orange-300 transition-colors">About</a>
+            <a href="../silo/signin.html" class="bg-orange-400 hover:bg-orange-600 px-6 py-3 rounded-lg transition-colors">Sign In</a>
+        </div>
+        
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-animate">
+                    Learning <span class="text-orange-300">Resources</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 hero-animate">
+                    Curated materials and tools that helped build this project
+                </p>
+                <div class="inline-flex items-center space-x-2 text-orange-400 hero-animate">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class=" text-green-400"> Updated regularly with new discoveries</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Categories -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <!-- Learning Path -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">My Learning Journey</h2>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-orange-300 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-bold">1</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">HTML Fundamentals</h3>
+                            <p class="text-gray-400 text-sm">Structure and semantics</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-bold">2</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">CSS Styling</h3>
+                            <p class="text-gray-400 text-sm">Design and responsiveness</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-bold">3</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">JavaScript Logic</h3>
+                            <p class="text-gray-400 text-sm">Interactivity and functions</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-bold">4</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Advanced Concepts</h3>
+                            <p class="text-gray-400 text-sm">APIs and frameworks</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutorials Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8">Recommended Tutorials</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">freeCodeCamp</h3>
+                                    <p class="text-sm text-gray-400">Full Stack Development</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">Comprehensive web development curriculum with hands-on projects.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-green-400 text-sm">✓ Completed</span>
+                                <a href="https://freecodecamp.org" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.958 1.404-5.958s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.748.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">MDN Web Docs</h3>
+                                    <p class="text-sm text-gray-400">Official Documentation</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">Comprehensive reference for HTML, CSS, and JavaScript concepts.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-400 text-sm">⚡ Reference</span>
+                                <a href="https://developer.mozilla.org" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">GitHub Learning Lab</h3>
+                                    <p class="text-sm text-gray-400">Version Control</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">Interactive courses on Git and GitHub for project management.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-green-400 text-sm">✓ Completed</span>
+                                <a href="https://lab.github.com" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.036 5.339L3.477 8.972l8.559 3.633 8.559-3.633-8.559-3.633zm8.559 6.394l-2.3.976-6.259-2.657-6.259 2.657-2.3-.976 8.559-3.633 8.559 3.633zm0 3.633l-2.3.976-6.259-2.657-6.259 2.657-2.3-.976 8.559-3.633 8.559 3.633z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Tailwind CSS Docs</h3>
+                                    <p class="text-sm text-gray-400">Utility-First CSS</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">Modern CSS framework for rapid UI development and design.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-yellow-400 text-sm">📚 Studying</span>
+                                <a href="https://tailwindcss.com" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M0 12v12h24V0H0v12zm4.5-6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm15 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM12 19.5a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">JavaScript.info</h3>
+                                    <p class="text-sm text-gray-400">Modern JavaScript</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">In-depth JavaScript tutorial from basics to advanced concepts.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-yellow-400 text-sm">📚 Studying</span>
+                                <a href="https://javascript.info" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm0 2.3l8.392 4.85v9.7L12 21.7l-8.392-4.85v-9.7L12 2.3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Can I Use</h3>
+                                    <p class="text-sm text-gray-400">Browser Support</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4">Check browser compatibility for web technologies and features.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-400 text-sm">⚡ Reference</span>
+                                <a href="https://caniuse.com" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm">Visit →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8">Useful Code Snippets</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold mb-4">Responsive Navigation</h3>
+                            <pre class="text-sm text-green-400 overflow-x-auto bg-gray-900 p-4 rounded-lg"><code>// Mobile menu toggle
+const menuButton = document.getElementById('menuButton');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuButton.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});</code></pre>
+                            <p class="text-gray-400 text-sm mt-3">Simple mobile navigation toggle functionality.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold mb-4">Smooth Scrolling</h3>
+                            <pre class="text-sm text-blue-400 overflow-x-auto bg-gray-900 p-4 rounded-lg"><code>// Smooth scroll to sections
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' });
+  });
+});</code></pre>
+                            <p class="text-gray-400 text-sm mt-3">Enhanced user experience with smooth scrolling.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold mb-4">CSS Grid Layout</h3>
+                            <pre class="text-sm text-purple-400 overflow-x-auto bg-gray-900 p-4 rounded-lg"><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}</code></pre>
+                            <p class="text-gray-400 text-sm mt-3">Responsive grid layout for card components.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold mb-4">Form Validation</h3>
+                            <pre class="text-sm text-yellow-400 overflow-x-auto bg-gray-900 p-4 rounded-lg">
+
+                            <p class="text-gray-400 text-sm mt-3">Client-side email validation for better UX.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Tools -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8">Development Tools</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.041l-1.421-1.421-3.75 3.75L12.041 12 24 .041 22.621-1.421 12 9.2 1.379-1.421 0 .041 11.959 12 0 23.959l1.379 1.421L12 14.8l10.621 10.58L24 24.041 12.041 12.041 24 12.041z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">VS Code</h3>
+                            <p class="text-gray-400">Primary code editor with extensions for HTML, CSS, and JavaScript.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.041l-1.421-1.421-3.75 3.75L12.041 12 24 .041 22.621-1.421 12 9.2 1.379-1.421 0 .041 11.959 12 0 23.959l1.379 1.421L12 14.8l10.621 10.58L24 24.041 12.041 12.041 24 12.041z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Git & GitHub</h3>
+                            <p class="text-gray-400">Version control and project hosting for collaboration and backup.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 3.433-2.173 4.71-.878.878-1.942 1.453-3.102 1.791-.423.123-.87.23-1.338.322-.877.174-1.828.266-2.777.358-1.2.116-2.426.202-3.537.416-.669.129-1.3.284-1.789.676-.244.196-.454.455-.608.756-.308.601-.317 1.245-.244 1.865.073.62.297 1.215.641 1.729.688 1.028 1.722 1.699 2.896 2.021.586.161 1.18.236 1.779.236 1.815 0 3.708-.542 5.157-1.67 1.449-1.128 2.263-2.795 2.263-4.589 0-.896-.154-1.802-.464-2.645-.155-.422-.351-.827-.583-1.204-.116-.189-.243-.371-.378-.545-.27-.348-.571-.671-.898-.961l.072-.072c1.075-.895 1.69-2.207 1.859-3.564.085-.677.085-1.364.013-2.04-.036-.338-.099-.673-.188-.999-.089-.326-.204-.641-.345-.941-.282-.6-.651-1.147-1.094-1.611-.442-.464-.956-.843-1.517-1.119C14.373.343 13.214.019 12.027.019c-1.186 0-2.346.324-3.374.9-.561.315-1.075.655-1.517 1.119-.443.464-.812 1.011-1.094 1.611-.141.3-.256.615-.345.941-.089.326-.152.661-.188.999-.072.676-.072 1.363.013 2.04.169 1.357.784 2.669 1.859 3.564l.072.072z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Chrome DevTools</h3>
+                            <p class="text-gray-400">Browser debugging and performance analysis for web development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Study Schedule -->
+                <div class="bg-gray-800/50 rounded-xl p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-center">Current Learning Schedule</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-orange-300">Daily Practice</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span>1 hour coding practice</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span>30 minutes reading documentation</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span>Project updates and commits</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-orange-300">Weekly Goals</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                    <span>Complete one tutorial series</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                    <span>Build one small project</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                    <span>Document learnings and challenges</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl font-bold mb-6">Start Your Learning Journey</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    These resources helped me build this project - they can help you too!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="docs.html" class="bg-orange-300 hover:bg-orange-400 px-8 py-4 rounded-lg font-semibold transition-colors hover:">
+                        Check Documentation
+                    </a>
+                    <a href="company.html" class="bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-lg font-semibold transition-colors">
+                        About This Project
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12 px-6">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="text-2xl font-bold text-orange-300 mb-4">FAFCODE</div>
+            <p class="text-gray-400 mb-6">Student project - Learning web development</p>
+            <div class="text-sm text-gray-500">
+                © 2024 FAFCODE. Educational project for learning purposes.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../index.js"></script>
+</body>
+</html>
